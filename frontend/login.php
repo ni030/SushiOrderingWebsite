@@ -6,7 +6,7 @@
     session_start();
     //if alr login, direct to index.page
     if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-        header("location: ../frontend/index.html");
+        header("location: ../frontend/index.php");
     }
 ?>
 <head>
