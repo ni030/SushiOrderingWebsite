@@ -13,8 +13,10 @@
 <body>
     <?php
     session_start();
-    if ($_SESSION["name"] !== null) {
+    if ($_SESSION["loggedin"] === TRUE) {
         echo "HI, ".$_SESSION["name"];
+    }else{
+        echo "Login";
     }
     ?>
     <button onclick="logout()">Logout</button>
