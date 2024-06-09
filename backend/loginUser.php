@@ -63,10 +63,6 @@ if ((isset($_POST["MM_select"])) && $_POST["MM_select"] == "Login") {
     }
 }
 
-
-
-
-
-
+$conn->close();
 
 ?>

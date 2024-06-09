@@ -1,24 +1,26 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <script>
-        function logout(){
-            window.location.href = "../backend/logout.php";
-        }
-    </script>
 </head>
 <body>
-    <?php
-    session_start();
-    if ($_SESSION["loggedin"] === TRUE) {
-        echo "HI, ".$_SESSION["name"];
-    }else{
-        echo "Login";
-    }
-    ?>
-    <button onclick="logout()">Logout</button>
+    <a href="userAccount.php">
+        <div>
+            <?php
+            if ($_SESSION["loggedin"] === TRUE) {
+                echo "HI, ".$_SESSION["name"];
+            }else{
+                echo "Login";
+            }
+            ?>
+        </div>
+    </a>
+    
 </body>
 </html>

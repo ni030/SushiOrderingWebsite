@@ -61,7 +61,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "Register")) {
             $encryption_iv
         );
 
-            $sql = "INSERT INTO `user`(`firsttName`, `lastName`, `mobileNum`, `email`, `password`, `birthday`) VALUES ('$firstName', '$lastName', '$mobileNum', '$email', '$encryption', '$birthday')";
+            $sql = "INSERT INTO `user`(`firstName`, `lastName`, `mobileNum`, `email`, `password`, `birthday`) VALUES ('$firstName', '$lastName', '$mobileNum', '$email', '$encryption', '$birthday')";
 
         if ($conn->query($sql) === TRUE) {
             echo "Success";
