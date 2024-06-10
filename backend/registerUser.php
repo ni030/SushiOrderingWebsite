@@ -1,7 +1,7 @@
 <?php
 require_once ("connection.php");
 
-if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "Register")) {
+if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "Register Now")) {
 
     //check empty input(s)
     if (empty($_POST["firstName"]) || empty($_POST["lastName"]) || empty($_POST["email"]) || empty($_POST["mobileNum"]) || empty($_POST["password"]) || empty($_POST["birthday"])) {
@@ -68,7 +68,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "Register")) {
         } else {
             echo "Error";
         }
-
+        require_once("checkLoginSession.php");
         header("Location: ../frontend/login.php");
     }
 }
