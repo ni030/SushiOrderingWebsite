@@ -174,10 +174,22 @@
             <h3 class="sub-heading"> enjoy the taste of japan</h3>
             <h3 class="heading"> Menu</h3>
 
+            <!--Menu bar-->
+            <div class="menu-bar">
+                <button class="menu-button" id="sushi-btn">Sushi</button>
+                <button class="menu-button" id="sides-btn">Sides</button>
+                <button class="menu-button" id="drinks-btn">Drinks</button>
+            </div>
+
+
+            <!--Menu scroll-->
+            <div class="box-wrap">
+                <img src="img/leftArr.png" id="leftBtn">
+        
             <div class="box-container">
-                <div class="box">
+                <div class="box" id="bostonRoll">
                     <div class="image">
-                        <img src="img/menu1.png" alt="">
+                        <img src="img/bostonRoll.png" alt="">
                         <a href="#" class="fas fa-heart"></a>  
                     </div>
                     <div class="content">
@@ -188,8 +200,8 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star-half-alt"></i>
                         </div>
-                        <h3>Tobiko</h3>
-                        <p>dsffdsjfdskjfsdjfsoijedfisjdfjsidfsifjdisdjfsdjfsdj</p>
+                        <h3>Boston roll</h3>
+                        <p>Colorful fish roe.</p>
                         <a href="#" class="btn">Add to cart</a>
                         <span class="price">RM 3.99</span>
                     </div>
@@ -197,7 +209,7 @@
 
                 <div class="box">
                     <div class="image">
-                        <img src="img/menu2.png" alt="">
+                        <img src="img/tomago.png" alt="">
                         <a href="#" class="fas fa-heart"></a>  
                     </div>
                     <div class="content">
@@ -209,7 +221,7 @@
                             <i class="fas fa-star-half-alt"></i>
                         </div>
                         <h3>Tomago</h3>
-                        <p>dsffdsjfdskjfsdjfsoijedfisjdfjsidfsifjdisdjfsdjfsdj</p>
+                        <p>Elegant, luxury Swiss watches.</p>
                         <a href="#" class="btn">Add to cart</a>
                         <span class="price">RM 2.99</span>
                     </div>
@@ -217,7 +229,7 @@
 
                 <div class="box">
                     <div class="image">
-                        <img src="img/menu3.png" alt="">
+                        <img src="img/kani.png" alt="">
                         <a href="#" class="fas fa-heart"></a>  
                     </div>
                     <div class="content">
@@ -229,7 +241,7 @@
                             <i class="fas fa-star-half-alt"></i>
                         </div>
                         <h3>Kani</h3>
-                        <p>dsffdsjfdskjfsdjfsoijedfisjdfjsidfsifjdisdjfsdjfsdj</p>
+                        <p>crab meat made from fish</p>
                         <a href="#" class="btn">Add to cart</a>
                         <span class="price">RM 2.99</span>
                     </div>
@@ -237,7 +249,7 @@
 
                 <div class="box">
                     <div class="image">
-                        <img src="img/menu4.png" alt="">
+                        <img src="img/unagi.png" alt="">
                         <a href="#" class="fas fa-heart"></a>  
                     </div>
                     <div class="content">
@@ -249,7 +261,7 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <h3>Unagi</h3>
-                        <p>dsffdsjfdskjfsdjfsoijedfisjdfjsidfsifjdisdjfsdjfsdj</p>
+                        <p>Grilled freshwater eel.</p>
                         <a href="#" class="btn">Add to cart</a>
                         <span class="price">RM 4.20</span>
                     </div>
@@ -257,7 +269,7 @@
 
                 <div class="box">
                     <div class="image">
-                        <img src="img/menu5.png" alt="">
+                        <img src="img/gunkan.png" alt="">
                         <a href="#" class="fas fa-heart"></a>  
                     </div>
                     <div class="content">
@@ -268,8 +280,8 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <h3>Tobiko</h3>
-                        <p>dsffdsjfdskjfsdjfsoijedfisjdfjsidfsifjdisdjfsdjfsdj</p>
+                        <h3>Gunkan</h3>
+                        <p>Seaweed-wrapped sushi delight.</p>
                         <a href="#" class="btn">Add to cart</a>
                         <span class="price">RM 3.50</span>
                     </div>
@@ -277,7 +289,7 @@
 
                 <div class="box">
                     <div class="image">
-                        <img src="img/menu6.png" alt="">
+                        <img src="img/uramaki.png" alt="">
                         <a href="#" class="fas fa-heart"></a>  
                     </div>
                     <div class="content">
@@ -288,8 +300,8 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <h3>Shishimi</h3>
-                        <p>dsffdsjfdskjfsdjfsoijedfisjdfjsidfsifjdisdjfsdjfsdj</p>
+                        <h3>Uramaki</h3>
+                        <p>Inside-out sushi rolls</p>
                         <a href="#" class="btn">Add to cart</a>
                         <span class="price">RM 4.80</span>
                     </div>
@@ -297,7 +309,7 @@
 
                 <div class="box">
                     <div class="image">
-                        <img src="img/menu7.png" alt="">
+                        <img src="img/tunaOni.png" alt="">
                         <a href="#" class="fas fa-heart"></a>  
                     </div>
                     <div class="content">
@@ -309,7 +321,7 @@
                             <i class="fas fa-star-half-alt"></i>
                         </div>
                         <h3>Tuna Onigiri</h3>
-                        <p>dsffdsjfdskjfsdjfsoijedfisjdfjsidfsifjdisdjfsdjfsdj</p>
+                        <p>Rice stuffed with tuna</p>
                         <a href="#" class="btn">Add to cart</a>
                         <span class="price">RM 5.60</span>
                     </div>
@@ -317,7 +329,7 @@
 
                 <div class="box">
                     <div class="image">
-                        <img src="img/menu8.png" alt="">
+                        <img src="img/avocadoMaki.png" alt="">
                         <a href="#" class="fas fa-heart"></a>  
                     </div>
                     <div class="content">
@@ -329,7 +341,7 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <h3>Avocado maki</h3>
-                        <p>dsffdsjfdskjfsdjfsoijedfisjdfjsidfsifjdisdjfsdjfsdj</p>
+                        <p>Rolled avocado sushi.</p>
                         <a href="#" class="btn">Add to cart</a>
                         <span class="price">RM2.80</span>
                     </div>
@@ -337,7 +349,7 @@
 
                 <div class="box">
                     <div class="image">
-                        <img src="img/menu9.png" alt="">
+                        <img src="img/miCombo.png" alt="">
                         <a href="#" class="fas fa-heart"></a>  
                     </div>
                     <div class="content">
@@ -349,7 +361,7 @@
                             <i class="fas fa-star-half-alt"></i>
                         </div>
                         <h3>Maki Inari Combo</h3>
-                        <p>dsffdsjfdskjfsdjfsoijedfisjdfjsidfsifjdisdjfsdjfsdj</p>
+                        <p>Sushi roll, tofu pockets.</p>
                         <a href="#" class="btn">Add to cart</a>
                         <span class="price">RM 6.80</span>
                     </div>
@@ -357,7 +369,7 @@
 
                 <div class="box">
                     <div class="image">
-                        <img src="img/menu10.png" alt="">
+                        <img src="img/makiSet.png" alt="">
                         <a href="#" class="fas fa-heart"></a>  
                     </div>
                     <div class="content">
@@ -368,8 +380,8 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star-half-alt"></i>
                         </div>
-                        <h3>Kappa Set</h3>
-                        <p>dsffdsjfdskjfsdjfsoijedfisjdfjsidfsifjdisdjfsdjfsdj</p>
+                        <h3>Maki Set</h3>
+                        <p>sushi roll set.</p>
                         <a href="#" class="btn">Add to cart</a>
                         <span class="price">RM 6.20</span>
                     </div>
@@ -377,7 +389,7 @@
 
                 <div class="box">
                     <div class="image">
-                        <img src="img/menu11.png" alt="">
+                        <img src="img/eelmaki.png" alt="">
                         <a href="#" class="fas fa-heart"></a>  
                     </div>
                     <div class="content">
@@ -388,8 +400,148 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star-half-alt"></i>
                         </div>
-                        <h3>Taiyaki</h3>
-                        <p>dsffdsjfdskjfsdjfsoijedfisjdfjsidfsifjdisdjfsdjfsdj</p>
+                        <h3>Eel Maki</h3>
+                        <p>Rolled freshwater eel</p>
+                        <a href="#" class="btn">Add to cart</a>
+                        <span class="price">RM 4.30</span>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="image">
+                        <img src="img/kappaRoll.png" alt="">
+                        <a href="#" class="fas fa-heart"></a>  
+                    </div>
+                    <div class="content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <h3>Kappa roll</h3>
+                        <p>Cucumber sushi roll.</p>
+                        <a href="#" class="btn">Add to cart</a>
+                        <span class="price">RM 3.99</span>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="image">
+                        <img src="img/gunkanmaki.png" alt="">
+                        <a href="#" class="fas fa-heart"></a>  
+                    </div>
+                    <div class="content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <h3>Gunkan Maki</h3>
+                        <p> Gunkan style sushi.</p>
+                        <a href="#" class="btn">Add to cart</a>
+                        <span class="price">RM 2.99</span>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="image">
+                        <img src="img/salmonOni.png" alt="">
+                        <a href="#" class="fas fa-heart"></a>  
+                    </div>
+                    <div class="content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <h3>Salmon Onigiri</h3>
+                        <p>Rice stuffed with salmon.</p>
+                        <a href="#" class="btn">Add to cart</a>
+                        <span class="price">RM 6.60</span>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="image">
+                        <img src="img/fishOni.png" alt="">
+                        <a href="#" class="fas fa-heart"></a>  
+                    </div>
+                    <div class="content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <h3>Fish Onigiri</h3>
+                        <p>Rice stuffed with fish.</p>
+                        <a href="#" class="btn">Add to cart</a>
+                        <span class="price">RM 5.50</span>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="image">
+                        <img src="img/sashimiTemaki.png" alt="">
+                        <a href="#" class="fas fa-heart"></a>  
+                    </div>
+                    <div class="content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <h3>Sashimi Temaki</h3>
+                        <p>Hand-rolled sashimi cone.</p>
+                        <a href="#" class="btn">Add to cart</a>
+                        <span class="price">RM 5.80</span>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="image">
+                        <img src="img/vegeTemaki.png" alt="">
+                        <a href="#" class="fas fa-heart"></a>  
+                    </div>
+                    <div class="content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <h3>Vege Temaki</h3>
+                        <p>Vegetable hand rolls.</p>
+                        <a href="#" class="btn">Add to cart</a>
+                        <span class="price">RM 4.90</span>
+                    </div>
+                </div>
+
+                <div class="box" id="chocoTaiyaki">
+                    <div class="image">
+                        <img src="img/chocoTaiyaki.png" alt="">
+                        <a href="#" class="fas fa-heart"></a>  
+                    </div>
+                    <div class="content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <h3>Choco Taiyaki</h3>
+                        <p>Chocolate-filled fish cake.</p>
                         <a href="#" class="btn">Add to cart</a>
                         <span class="price">RM 6.80</span>
                     </div>
@@ -397,7 +549,127 @@
 
                 <div class="box">
                     <div class="image">
-                        <img src="img/menu12.png" alt="">
+                        <img src="img/matcha.png" alt="">
+                        <a href="#" class="fas fa-heart"></a>  
+                    </div>
+                    <div class="content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <h3>Matcha Taiyaki</h3>
+                        <p>Matcha-filled fish cake.</p>
+                        <a href="#" class="btn">Add to cart</a>
+                        <span class="price">RM 6.80</span>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="image">
+                        <img src="img/vanilla.png" alt="">
+                        <a href="#" class="fas fa-heart"></a>  
+                    </div>
+                    <div class="content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <h3>Vanilla Taiyaki</h3>
+                        <p>Vanilla-filled fish cake.</p>
+                        <a href="#" class="btn">Add to cart</a>
+                        <span class="price">RM 6.80</span>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="image">
+                        <img src="img/matchaCake.png" alt="">
+                        <a href="#" class="fas fa-heart"></a>  
+                    </div>
+                    <div class="content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <h3>Uji-matcha Cake</h3>
+                        <p>Matcha-flavored cake delight.</p>
+                        <a href="#" class="btn">Add to cart</a>
+                        <span class="price">RM 9.80</span>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="image">
+                        <img src="img/mochi.png" alt="">
+                        <a href="#" class="fas fa-heart"></a>  
+                    </div>
+                    <div class="content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <h3>RedBean Mochi</h3>
+                        <p>Sweet red bean mochi.</p>
+                        <a href="#" class="btn">Add to cart</a>
+                        <span class="price">RM 5.80</span>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="image">
+                        <img src="img/daifuku.png" alt="">
+                        <a href="#" class="fas fa-heart"></a>  
+                    </div>
+                    <div class="content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <h3>Daifuku</h3>
+                        <p>Strawberry stuffed mochi.</p>
+                        <a href="#" class="btn">Add to cart</a>
+                        <span class="price">RM 7.80</span>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="image">
+                        <img src="img/takoyaki.png" alt="">
+                        <a href="#" class="fas fa-heart"></a>  
+                    </div>
+                    <div class="content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <h3>Takoyaki</h3>
+                        <p>Octopus-filled savory balls.</p>
+                        <a href="#" class="btn">Add to cart</a>
+                        <span class="price">RM 6.30</span>
+                    </div>
+                </div>
+
+                <div class="box" id="hotMatcha">
+                    <div class="image">
+                        <img src="img/hotmatcha.png" alt="">
                         <a href="#" class="fas fa-heart"></a>  
                     </div>
                     <div class="content">
@@ -409,14 +681,99 @@
                             <i class="fas fa-star-half-alt"></i>
                         </div>
                         <h3>Hot Matcha</h3>
-                        <p>dsffdsjfdskjfsdjfsoijedfisjdfjsidfsifjdisdjfsdjfsdj</p>
+                        <p>Hot brewed green tea.</p>
                         <a href="#" class="btn">Add to cart</a>
                         <span class="price">RM 2.00</span>
                     </div>
                 </div>
+
+                <div class="box">
+                    <div class="image">
+                        <img src="img/hotchoco.png" alt="">
+                        <a href="#" class="fas fa-heart"></a>  
+                    </div>
+                    <div class="content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <h3>Hot Chocolate</h3>
+                        <p>Warm chocolate drink.</p>
+                        <a href="#" class="btn">Add to cart</a>
+                        <span class="price">RM 6.99</span>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="image">
+                        <img src="img/matchalatte.png" alt="">
+                        <a href="#" class="fas fa-heart"></a>  
+                    </div>
+                    <div class="content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <h3>Iced matcha Latte</h3>
+                        <p>Cold matcha milk drink.</p>
+                        <a href="#" class="btn">Add to cart</a>
+                        <span class="price">RM 8.80</span>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="image">
+                        <img src="img/OrenCocktail.png" alt="">
+                        <a href="#" class="fas fa-heart"></a>  
+                    </div>
+                    <div class="content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <h3>Oren Cocktail</h3>
+                        <p>Refreshing orange cocktail.</p>
+                        <a href="#" class="btn">Add to cart</a>
+                        <span class="price">RM 12.90</span>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="image">
+                        <img src="img/wCocktail.png" alt="">
+                        <a href="#" class="fas fa-heart"></a>  
+                    </div>
+                    <div class="content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <h3>Watermelon Cocktail</h3>
+                        <p>Refreshing watermelon drink.</p>
+                        <a href="#" class="btn">Add to cart</a>
+                        <span class="price">RM 12.90</span>
+                    </div>
+                </div>
+
+
+            </div>
+            <img src="img/rightArr.png" id="rightBtn">
             </div>
 
         </section>
+        
 
 
 
@@ -426,6 +783,8 @@
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <!--link to JS-->
         <script src="main.js"> </script>
+        
+
 
     </body>
 </html>
