@@ -1,196 +1,209 @@
 <?php
-    session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
 <html lang="'en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width ,initial-scale=1.0">
-        <title>Sushi Bliss Ordering Website</title>
 
-        <!--Swiper-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width ,initial-scale=1.0">
+    <title>Sushi Bliss Ordering Website</title>
 
-        <!--font awesome cdn link-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!--Swiper-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-        <!--link to css-->
-        <link rel="stylesheet" href="style.css">
+    <!--font awesome cdn link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    </head>
+    <!--link to css-->
+    <link rel="stylesheet" href="style.css">
 
-    <body>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-        <!-- Home section -->
-        <section class="home" id="home">
+    <!-- Nav bar file import -->
+    <script>
+        $(document).ready(function() {
+            $("#includedContent").load("nav.html");
+        });
+    </script>
+</head>
 
-            <div class="swiper home-slider">
+<body>
+    <!--nav bar-->
+    <div id="includedContent"></div>
 
-                <div class="swiper-wrapper wrapper">
+    <!-- Home section -->
+    <section class="home" id="home">
 
-                    <div class="swiper-slide slide">
-                        <div class="content">
-                            <span>Our Specials, only at RM 59.90</span>
-                            <h3>Family Feast Combo</h3>
-                            <p>our Family Feast Combo includes a generous assortment of sushi rolls, 
-                                sashimi, nigiri, and a variety of sides. 
-                                Ideal for gatherings and family meals where everyone can enjoy a taste of Japan together.</p>
-                            <a href="#" class="btn">Order now</a>
-                        </div>
-                        <div class="image">
-                            <img src="img/home1.png" alt="">
-                        </div>
+        <div class="swiper home-slider">
+
+            <div class="swiper-wrapper wrapper">
+
+                <div class="swiper-slide slide">
+                    <div class="content">
+                        <span>Our Specials, only at RM 59.90</span>
+                        <h3>Family Feast Combo</h3>
+                        <p>our Family Feast Combo includes a generous assortment of sushi rolls,
+                            sashimi, nigiri, and a variety of sides.
+                            Ideal for gatherings and family meals where everyone can enjoy a taste of Japan together.
+                        </p>
+                        <a href="#" class="btn">Order now</a>
                     </div>
-
-                    <div class="swiper-slide slide">
-                        <div class="content">
-                            <span>Our Specials, only at RM 29.90</span>
-                            <h3>Solo Savory Combo</h3>
-                            <p>Tailored for sushi enthusiasts dining alone or 
-                                with a companion. It features a selection of sushi rolls, 
-                                nigiri, and a side dish, ensuring a satisfying and delightful 
-                                meal experience for one or two people.</p>
-                            <a href="#" class="btn">Order now</a>
-                        </div>
-                        <div class="image">
-                            <img src="img/home2.png" alt="">
-                        </div>
+                    <div class="image">
+                        <img src="img/home1.png" alt="">
                     </div>
-
-                    <div class="swiper-slide slide">
-                        <div class="content">
-                            <span>Our Specials, only at RM 79.90</span>
-                            <h3>Sashimi Sensation Combo</h3>
-                            <p>Indulge in the exquisite flavors of our Sashimi Sensation Combo, 
-                                showcasing the freshest cuts of sashimi meticulously prepared by 
-                                our skilled chefs. This combo is designed to delight sashimi 
-                                aficionados with its premium selection and artful presentation.</p>
-                            <a href="#" class="btn">Order now</a>
-                        </div>
-                        <div class="image3">
-                            <img src="img/home3.png" alt="">
-                        </div>
-                    </div>
-
-                </div>
-                <div class="swiper-pagination"></div>
-            </div>
-
-        </section>
-
-
-
-
-
-
-        <!--Promotions-->
-        <section class="promotion" id="promotion">
-            <h3 class="sub-heading"> our exclusive</h3>
-            <h3 class="heading"> Promotions</h3>
-                
-                <div class="box-container">
-                    <div class="box">
-                        <img src="img/promo1.png" alt="">
-                        <p>Ebi</p>
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="prices">
-                            <span class="discounted-price">RM 2.99</span>
-                            <span class="original-price">RM 5.50</span>
-                        </div>
-                        <a href="#" class="btn">add to cart</a>
-                    </div>
-    
-                    <div class="box">
-                        <img src="img/promo2.png" alt="">
-                        <p>Ikura</p>
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="prices">
-                            <span class="discounted-price">RM 2.50</span>
-                            <span class="original-price">RM 5.00</span>
-                        </div>
-                        <a href="#" class="btn">add to cart</a>
-                    </div>
-    
-                    <div class="box">
-                        <img src="img/promo3.png" alt="">
-                        <p>Hamachi</p>
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <div class="prices">
-                            <span class="discounted-price">RM 2.20</span>
-                            <span class="original-price">RM 4.99</span>
-                        </div>
-                        <a href="#" class="btn">add to cart</a>
-                    </div>
-    
-                    <div class="box">
-                        <img src="img/promo4.png" alt="">
-                        <p>Futomaki</p>
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="prices">
-                            <span class="discounted-price">RM 2.50</span>
-                            <span class="original-price">RM 3.99</span>
-                        </div>
-                        <a href="#" class="btn">add to cart</a>
-                    </div>
-    
                 </div>
 
-        </section>
+                <div class="swiper-slide slide">
+                    <div class="content">
+                        <span>Our Specials, only at RM 29.90</span>
+                        <h3>Solo Savory Combo</h3>
+                        <p>Tailored for sushi enthusiasts dining alone or
+                            with a companion. It features a selection of sushi rolls,
+                            nigiri, and a side dish, ensuring a satisfying and delightful
+                            meal experience for one or two people.</p>
+                        <a href="#" class="btn">Order now</a>
+                    </div>
+                    <div class="image">
+                        <img src="img/home2.png" alt="">
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="content">
+                        <span>Our Specials, only at RM 79.90</span>
+                        <h3>Sashimi Sensation Combo</h3>
+                        <p>Indulge in the exquisite flavors of our Sashimi Sensation Combo,
+                            showcasing the freshest cuts of sashimi meticulously prepared by
+                            our skilled chefs. This combo is designed to delight sashimi
+                            aficionados with its premium selection and artful presentation.</p>
+                        <a href="#" class="btn">Order now</a>
+                    </div>
+                    <div class="image3">
+                        <img src="img/home3.png" alt="">
+                    </div>
+                </div>
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+    </section>
 
 
 
 
 
 
+    <!--Promotions-->
+    <section class="promotion" id="promotion">
+        <h3 class="sub-heading"> our exclusive</h3>
+        <h3 class="heading"> Promotions</h3>
 
-        <!--menu-->
-        <section class="menu" id="menu">
-            <h3 class="sub-heading"> enjoy the taste of japan</h3>
-            <h3 class="heading"> Menu</h3>
-
-            <!--Menu bar-->
-            <div class="menu-bar">
-                <button class="menu-button" id="sushi-btn">Sushi</button>
-                <button class="menu-button" id="sides-btn">Sides</button>
-                <button class="menu-button" id="drinks-btn">Drinks</button>
+        <div class="box-container">
+            <div class="box">
+                <img src="img/promo1.png" alt="">
+                <p>Ebi</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="prices">
+                    <span class="discounted-price">RM 2.99</span>
+                    <span class="original-price">RM 5.50</span>
+                </div>
+                <a href="#" class="btn">add to cart</a>
             </div>
 
+            <div class="box">
+                <img src="img/promo2.png" alt="">
+                <p>Ikura</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="prices">
+                    <span class="discounted-price">RM 2.50</span>
+                    <span class="original-price">RM 5.00</span>
+                </div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
 
-            <!--Menu scroll-->
-            <div class="box-wrap">
-                <img src="img/leftArr.png" id="leftBtn">
-        
+            <div class="box">
+                <img src="img/promo3.png" alt="">
+                <p>Hamachi</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="prices">
+                    <span class="discounted-price">RM 2.20</span>
+                    <span class="original-price">RM 4.99</span>
+                </div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+
+            <div class="box">
+                <img src="img/promo4.png" alt="">
+                <p>Futomaki</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="prices">
+                    <span class="discounted-price">RM 2.50</span>
+                    <span class="original-price">RM 3.99</span>
+                </div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+
+
+    <!--menu-->
+    <section class="menu" id="menu">
+        <h3 class="sub-heading"> enjoy the taste of japan</h3>
+        <h3 class="heading"> Menu</h3>
+
+        <!--Menu bar-->
+        <div class="menu-bar">
+            <button class="menu-button" id="sushi-btn">Sushi</button>
+            <button class="menu-button" id="sides-btn">Sides</button>
+            <button class="menu-button" id="drinks-btn">Drinks</button>
+        </div>
+
+
+        <!--Menu scroll-->
+        <div class="box-wrap">
+            <img src="img/leftArr.png" id="leftBtn">
+
             <div class="box-container">
                 <div class="box" id="bostonRoll">
                     <div class="image">
                         <img src="img/bostonRoll.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>  
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -210,7 +223,7 @@
                 <div class="box">
                     <div class="image">
                         <img src="img/tomago.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>  
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -230,7 +243,7 @@
                 <div class="box">
                     <div class="image">
                         <img src="img/kani.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>  
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -250,7 +263,7 @@
                 <div class="box">
                     <div class="image">
                         <img src="img/unagi.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>  
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -270,7 +283,7 @@
                 <div class="box">
                     <div class="image">
                         <img src="img/gunkan.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>  
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -290,7 +303,7 @@
                 <div class="box">
                     <div class="image">
                         <img src="img/uramaki.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>  
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -310,7 +323,7 @@
                 <div class="box">
                     <div class="image">
                         <img src="img/tunaOni.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>  
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -330,7 +343,7 @@
                 <div class="box">
                     <div class="image">
                         <img src="img/avocadoMaki.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>  
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -350,7 +363,7 @@
                 <div class="box">
                     <div class="image">
                         <img src="img/miCombo.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>  
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -370,7 +383,7 @@
                 <div class="box">
                     <div class="image">
                         <img src="img/makiSet.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>  
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -390,7 +403,7 @@
                 <div class="box">
                     <div class="image">
                         <img src="img/eelmaki.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>  
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -410,7 +423,7 @@
                 <div class="box">
                     <div class="image">
                         <img src="img/kappaRoll.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>  
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -430,7 +443,7 @@
                 <div class="box">
                     <div class="image">
                         <img src="img/gunkanmaki.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>  
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -450,7 +463,7 @@
                 <div class="box">
                     <div class="image">
                         <img src="img/salmonOni.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>  
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -470,7 +483,7 @@
                 <div class="box">
                     <div class="image">
                         <img src="img/fishOni.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>  
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -490,7 +503,7 @@
                 <div class="box">
                     <div class="image">
                         <img src="img/sashimiTemaki.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>  
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -510,7 +523,7 @@
                 <div class="box">
                     <div class="image">
                         <img src="img/vegeTemaki.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>  
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -530,7 +543,7 @@
                 <div class="box" id="chocoTaiyaki">
                     <div class="image">
                         <img src="img/chocoTaiyaki.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>  
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -550,7 +563,7 @@
                 <div class="box">
                     <div class="image">
                         <img src="img/matcha.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>  
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -570,7 +583,7 @@
                 <div class="box">
                     <div class="image">
                         <img src="img/vanilla.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>  
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -590,7 +603,7 @@
                 <div class="box">
                     <div class="image">
                         <img src="img/matchaCake.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>  
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -610,7 +623,7 @@
                 <div class="box">
                     <div class="image">
                         <img src="img/mochi.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>  
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -630,7 +643,7 @@
                 <div class="box">
                     <div class="image">
                         <img src="img/daifuku.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>  
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -650,7 +663,7 @@
                 <div class="box">
                     <div class="image">
                         <img src="img/takoyaki.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>  
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -670,7 +683,7 @@
                 <div class="box" id="hotMatcha">
                     <div class="image">
                         <img src="img/hotmatcha.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>  
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -690,7 +703,7 @@
                 <div class="box">
                     <div class="image">
                         <img src="img/hotchoco.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>  
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -710,7 +723,7 @@
                 <div class="box">
                     <div class="image">
                         <img src="img/matchalatte.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>  
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -730,7 +743,7 @@
                 <div class="box">
                     <div class="image">
                         <img src="img/OrenCocktail.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>  
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -750,7 +763,7 @@
                 <div class="box">
                     <div class="image">
                         <img src="img/wCocktail.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>  
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -770,23 +783,26 @@
 
             </div>
             <img src="img/rightArr.png" id="rightBtn">
-            </div>
+        </div>
 
-        </section>
-        
-
+    </section>
 
 
 
-       
-        <!--swiper js-->
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-        <!--link to JS-->
-        <script src="main.js"> </script>
-        
 
 
-    </body>
+
+    <!--swiper js-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!--link to JS-->
+    <script src="main.js"> </script>
+    <!--import nav.js-->
+    <script src="nav.js"></script>
+
+
+
+</body>
+
 </html>
 
 <!-- <!DOCTYPE html>
@@ -801,8 +817,8 @@
         <div>
             <?php
             if ($_SESSION["loggedin"] === TRUE) {
-                echo "HI, ".$_SESSION["name"];
-            }else{
+                echo "HI, " . $_SESSION["name"];
+            } else {
                 echo "Login";
             }
             ?>
