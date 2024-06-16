@@ -20,20 +20,40 @@ session_start();
     <!--link to css-->
     <link rel="stylesheet" href="style.css">
 
+    <link rel="stylesheet" href="../CSS/nav.css">
+    <script defer src="nav.js"></script>
+
     <!-- jQuery CDN -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 
     <!-- Nav bar file import -->
-    <script>
-        $(document).ready(function() {
-            $("#includedContent").load("nav.html");
-        });
-    </script>
+    <!-- <script>
+    $(document).ready(function() {
+        $("#includedContent").load("nav.html");
+    });
+    </script> -->
 </head>
 
 <body>
-    <!--nav bar-->
-    <div id="includedContent"></div>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <div class="navbar-brand">
+                <a href="#" class="navbar-logo">
+                    <img src="../img/logo.PNG" alt="Logo">
+                </a>
+                <span class="shop-name">Sushi Bliss</span>
+            </div>
+            <ul class="navbar-menu">
+                <li><a id="home-link" href="index.php">Home</a></li>
+                <li><a id="menu-link" href="menuPage.html">Menu</a></li>
+                <li><a id="promo-link" href="promotion.html">Promotion</a></li>
+            </ul>
+        </div>
+        <div class="navbar-profile">
+            <a href="login.php" id="login-link">Login</a>
+            <span id="profile-name"></span>
+        </div>
+    </nav>
 
     <!-- Home section -->
     <section class="home" id="home">
@@ -796,8 +816,6 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!--link to JS-->
     <script src="main.js"> </script>
-    <!--import nav.js-->
-    <script src="nav.js"></script>
 
 
 
