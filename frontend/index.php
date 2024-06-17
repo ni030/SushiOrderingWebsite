@@ -35,23 +35,32 @@ session_start();
 </head>
 
 <body>
-    <nav class="navbar">
+<nav class="navbar">
         <div class="navbar-left">
             <div class="navbar-brand">
-                <a href="index.php" class="navbar-logo">
-                    <img src="img/logo.PNG" alt="Logo">
+                <a href="#" class="navbar-logo">
+                    <img src="../img/logo.PNG" alt="Logo">
                 </a>
                 <span class="shop-name">Sushi Bliss</span>
             </div>
             <ul class="navbar-menu">
-                <li><a id="home-link" href="index.php">Home</a></li>
-                <li><a id="menu-link" href="menuPage.html">Menu</a></li>
-                <li><a id="promo-link" href="promotion.html">Promotion</a></li>
+                <li><a href="index.php" id="home-link">Home</a></li>
+                <li><a href="menu.html" id="menu-link">Menu</a></li>
+                <li><a href="promotion.html" id="promotion-link">Promotion</a></li>
             </ul>
         </div>
         <div class="navbar-profile">
-            <a href="login.php" id="login-link">Login</a>
-            <span id="profile-name"></span>
+        <a href="userAccount.php">
+        <div>
+            <?php
+            if ($_SESSION["loggedin"] === TRUE) {
+                echo "HI, " . $_SESSION["name"];
+            } else {
+                echo "Login";
+            }
+            ?>
+        </div>
+    </a>
         </div>
     </nav>
 
@@ -822,26 +831,3 @@ session_start();
 </body>
 
 </html>
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-</head>
-<body>
-    <a href="userAccount.php">
-        <div>
-            <?php
-            if ($_SESSION["loggedin"] === TRUE) {
-                echo "HI, " . $_SESSION["name"];
-            } else {
-                echo "Login";
-            }
-            ?>
-        </div>
-    </a>
-    
-</body>
-</html> -->
