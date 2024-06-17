@@ -20,8 +20,8 @@ session_start();
     <!--link to css-->
     <link rel="stylesheet" href="style.css">
 
-    <link rel="stylesheet" href="../CSS/nav.css">
-    <script defer src="nav.js"></script>
+    <link rel="stylesheet" href="CSS/nav.css">
+    <script defer src="js/nav.js"></script>
 
     <!-- jQuery CDN -->
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
@@ -38,8 +38,8 @@ session_start();
     <nav class="navbar">
         <div class="navbar-left">
             <div class="navbar-brand">
-                <a href="#" class="navbar-logo">
-                    <img src="../img/logo.PNG" alt="Logo">
+                <a href="index.php" class="navbar-logo">
+                    <img src="img/logo.PNG" alt="Logo">
                 </a>
                 <span class="shop-name">Sushi Bliss</span>
             </div>
@@ -815,7 +815,7 @@ session_start();
     <!--swiper js-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!--link to JS-->
-    <script src="main.js"> </script>
+    <script src="JS/main.js"> </script>
 
 
 
