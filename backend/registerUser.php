@@ -1,5 +1,6 @@
 <?php
-require_once ("connection.php");
+require_once("connection.php");
+$email_error_message = null;
 
 if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "Register Now")) {
 
@@ -14,7 +15,8 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "Register Now")) {
             $stmt->store_result();
 
             if ($stmt->num_rows > 0) {
-                exit('Email exists.');
+                header("Location: ../frontend/register.php?singup=email");
+                exit();
             }
             $stmt->close();
         }
@@ -25,7 +27,8 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "Register Now")) {
             $stmt2->store_result();
 
             if ($stmt2->num_rows > 0) {
-                exit('Mobile number exists.');
+                header("Location: ../frontend/register.php?singup=phone");
+                exit();
             }
             $stmt2->close();
         }
@@ -61,7 +64,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "Register Now")) {
             $encryption_iv
         );
 
-            $sql = "INSERT INTO `user`(`firstName`, `lastName`, `mobileNum`, `email`, `password`, `birthday`) VALUES ('$firstName', '$lastName', '$mobileNum', '$email', '$encryption', '$birthday')";
+        $sql = "INSERT INTO `user`(`firstName`, `lastName`, `mobileNum`, `email`, `password`, `birthday`) VALUES ('$firstName', '$lastName', '$mobileNum', '$email', '$encryption', '$birthday')";
 
         if ($conn->query($sql) === TRUE) {
             echo "Success";
@@ -74,4 +77,3 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "Register Now")) {
 }
 
 $conn->close();
-?>
