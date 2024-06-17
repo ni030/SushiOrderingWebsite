@@ -18,7 +18,7 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <!--link to css-->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="CSS/style.css">
 
     <link rel="stylesheet" href="CSS/nav.css">
     <script defer src="js/nav.js"></script>
