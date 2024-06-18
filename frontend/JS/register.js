@@ -1,12 +1,12 @@
 const curPage = window.location.href;
 
-if(curPage === "http://localhost/SushiOrderingWebsite-main/frontend/register.php?singup=email"){
+if(curPage.includes("register.php?signup=email")){
     document.getElementById('email_error').style.display='block';
 }
 else{
     document.getElementById('email_error').style.display='none';
 }
-if(curPage === "http://localhost/SushiOrderingWebsite-main/frontend/register.php?singup=phone"){
+if(curPage.includes("register.php?signup=phone")){
     document.getElementById('phone_error').style.display='block';
 }
 else{
