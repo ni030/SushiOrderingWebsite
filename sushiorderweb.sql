@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2024 at 08:28 AM
+-- Generation Time: Jun 18, 2024 at 04:52 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -44,9 +44,29 @@ CREATE TABLE `address` (
 
 INSERT INTO `address` (`addressID`, `addressName`, `unit`, `address`, `city`, `state`, `postcode`, `userID`) VALUES
 ('123a01b6-26e2-11ef-a944-00ff93bfad24', 'school2', '11', 'Gg. Basudewo No. 344', 'Sabang', 'Sumatera Utara', 31271, 'd7742fe3-26e1-11ef-a944-00ff93bfad24'),
-('784c1b72-255e-11ef-b8b2-00ff93bfad24', 'MRDIY', '11', 'Gg. Basudewo No. 344', 'Sabang', 'Sumatera Utara', 31271, 'c0c72494-23e6-11ef-be07-9c2f9d6cb57a'),
 ('8b66cd19-26de-11ef-a944-00ff93bfad24', 'school', '100', 'Gg. Basudewo No. 344', 'Sabang', 'Sumatera Utara', 31271, '0468372a-26de-11ef-a944-00ff93bfad24'),
+('905e8697-2d6c-11ef-b22b-00ff93bfad24', 'new home', '11', 'Gg. Basudewo No. 344', 'Sabang', 'Sumatera Utara', 31271, 'c0c72494-23e6-11ef-be07-9c2f9d6cb57a'),
 ('e0e8c960-255e-11ef-b8b2-00ff93bfad24', 'school', '12', 'n28', 'skudai', 'johor', 83100, 'c0c72494-23e6-11ef-be07-9c2f9d6cb57a');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `cartID` varchar(40) NOT NULL,
+  `meals` varchar(100) NOT NULL,
+  `quantity` varchar(100) NOT NULL,
+  `userID` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`cartID`, `meals`, `quantity`, `userID`) VALUES
+('e2d8a18e-5be0-4472-93f2-8fa107ec4185', '', '', 'c0c72494-23e6-11ef-be07-9c2f9d6cb57a');
 
 -- --------------------------------------------------------
 
@@ -112,9 +132,21 @@ CREATE TABLE `orders` (
   `orderID` varchar(40) NOT NULL DEFAULT uuid(),
   `ordertime` datetime(6) NOT NULL,
   `orderItems` varchar(150) NOT NULL,
-  `totalAmount` int(10) NOT NULL,
-  `orderUser` varchar(40) NOT NULL
+  `orderQuantity` varchar(100) NOT NULL,
+  `totalAmount` decimal(10,2) NOT NULL,
+  `orderUser` varchar(40) NOT NULL,
+  `addressID` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`orderID`, `ordertime`, `orderItems`, `orderQuantity`, `totalAmount`, `orderUser`, `addressID`) VALUES
+('0f64ee7f-2d81-11ef-b22b-00ff93bfad24', '2024-06-18 16:42:57.000000', 'M028,M031', ' 2,6', 40.80, 'c0c72494-23e6-11ef-be07-9c2f9d6cb57a', '905e8697-2d6c-11ef-b22b-00ff93bfad24'),
+('21e9b865-2d7e-11ef-b22b-00ff93bfad24', '2024-06-18 16:21:59.000000', 'M033,M019', '5, 2', 26.10, 'c0c72494-23e6-11ef-be07-9c2f9d6cb57a', '905e8697-2d6c-11ef-b22b-00ff93bfad24'),
+('37215908-2d7a-11ef-b22b-00ff93bfad24', '2024-06-18 15:53:57.000000', 'M031,M003', '5, 2', 18.48, 'c0c72494-23e6-11ef-be07-9c2f9d6cb57a', 'e0e8c960-255e-11ef-b8b2-00ff93bfad24'),
+('cf7aebf6-2d80-11ef-b22b-00ff93bfad24', '2024-06-18 16:41:09.000000', 'M030', '5', 14.95, 'c0c72494-23e6-11ef-be07-9c2f9d6cb57a', 'e0e8c960-255e-11ef-b8b2-00ff93bfad24');
 
 -- --------------------------------------------------------
 
@@ -150,11 +182,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`guid`, `firstName`, `lastName`, `mobileNum`, `email`, `password`, `birthday`) VALUES
-('a2d9bb16-23e7-11ef-be07-9c2f9d6cb57a', 'LIM', 'NI', 1213, 'We@gmail.com', 'ECw=', '2012-12-12 00:00:00.000000'),
-('c0c72494-23e6-11ef-be07-9c2f9d6cb57a', 'LIM', 'huan', 1212, 'WW@gmail.com', 'ECw=', '2012-12-12 00:00:00.000000'),
-('cee322c7-248a-11ef-bc65-00ff93bfad24', 'LIM', 'NA', 12345, 'limsini000@gmail.com', 'EC8=', '2012-12-12 00:00:00.000000'),
-('d7742fe3-26e1-11ef-a944-00ff93bfad24', 'cin', 'Cin', 1111111, 'cc@gmail.com', 'EC+Q', '2024-06-10 00:00:00.000000'),
-('dab3185a-26d5-11ef-a944-00ff93bfad24', 'Mark', 'Otto', 122, 'ww1@gmail.com', 'EC+R', '2024-06-10 00:00:00.000000');
+('c0c72494-23e6-11ef-be07-9c2f9d6cb57a', 'loh', 'nini', 1212, 'WW@gmail.com', 'EC8=', '2012-12-12 00:00:00.000000');
 
 --
 -- Indexes for dumped tables
@@ -165,6 +193,12 @@ INSERT INTO `user` (`guid`, `firstName`, `lastName`, `mobileNum`, `email`, `pass
 --
 ALTER TABLE `address`
   ADD PRIMARY KEY (`addressID`);
+
+--
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`cartID`);
 
 --
 -- Indexes for table `meal`
