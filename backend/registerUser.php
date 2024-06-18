@@ -67,6 +67,12 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "Register Now")) {
         $sql = "INSERT INTO `user`(`firstName`, `lastName`, `mobileNum`, `email`, `password`, `birthday`) VALUES ('$firstName', '$lastName', '$mobileNum', '$email', '$encryption', '$birthday')";
 
         if ($conn->query($sql) === TRUE) {
+            $sql2 = "SELECT * FROM user WHERE email = '$email'";
+            $result2 = mysqli_query($conn, $sql2);
+            $row2 = $result2->fetch_assoc();
+            $userid = $row2["guid"];
+
+            $sql3 = "INSERT INTO `cart`(`userID`) VALUES ($userid)";
             echo "Success";
         } else {
             echo "Error";
