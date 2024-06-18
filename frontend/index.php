@@ -1,5 +1,13 @@
 <?php
-session_start();
+    session_start();
+
+    require_once("../backend/connection.php");
+    $sql = "SELECT * FROM meal";
+    $result = mysqli_query($conn, $sql);
+
+    $sql2 = "SELECT * FROM meal WHERE category = 'Promotion'";
+    $result2 = mysqli_query($conn, $sql2);
+?>
 ?>
 
 <!DOCTYPE html>
@@ -56,6 +64,10 @@ session_start();
             if ($_SESSION["loggedin"] === TRUE) {
                 echo "HI, " . $_SESSION["name"];
             } else {
+                echo "Login";
+            }
+
+            if(!isset($_SESSION["loggedin"])) {
                 echo "Login";
             }
             ?>
@@ -122,20 +134,19 @@ session_start();
 
     </section>
 
-
-
-
-
-
     <!--Promotions-->
     <section class="promotion" id="promotion">
         <h3 class="sub-heading"> our exclusive</h3>
         <h3 class="heading"> Promotions</h3>
 
         <div class="box-container">
+            <?php 
+                while($row2 = $result2->fetch_assoc())
+                {
+            ?>
             <div class="box">
-                <img src="img/promo1.png" alt="">
-                <p>Ebi</p>
+                <img src="img/<?php echo $row2["mealPic"];?>" alt="">
+                <p><?php echo $row2["mealName"]?></p>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -144,72 +155,17 @@ session_start();
                     <i class="fas fa-star"></i>
                 </div>
                 <div class="prices">
-                    <span class="discounted-price">RM 2.99</span>
+                    <span class="discounted-price">RM <?php echo $row2["price"]?></span>
                     <span class="original-price">RM 5.50</span>
                 </div>
                 <a href="#" class="btn">add to cart</a>
             </div>
-
-            <div class="box">
-                <img src="img/promo2.png" alt="">
-                <p>Ikura</p>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <div class="prices">
-                    <span class="discounted-price">RM 2.50</span>
-                    <span class="original-price">RM 5.00</span>
-                </div>
-                <a href="#" class="btn">add to cart</a>
-            </div>
-
-            <div class="box">
-                <img src="img/promo3.png" alt="">
-                <p>Hamachi</p>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <div class="prices">
-                    <span class="discounted-price">RM 2.20</span>
-                    <span class="original-price">RM 4.99</span>
-                </div>
-                <a href="#" class="btn">add to cart</a>
-            </div>
-
-            <div class="box">
-                <img src="img/promo4.png" alt="">
-                <p>Futomaki</p>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <div class="prices">
-                    <span class="discounted-price">RM 2.50</span>
-                    <span class="original-price">RM 3.99</span>
-                </div>
-                <a href="#" class="btn">add to cart</a>
-            </div>
-
+            <?php 
+                }
+            ?>
         </div>
 
     </section>
-
-
-
-
-
-
 
     <!--menu-->
     <section class="menu" id="menu">
@@ -218,20 +174,23 @@ session_start();
 
         <!--Menu bar-->
         <div class="menu-bar">
-            <button class="menu-button" id="sushi-btn">Sushi</button>
-            <button class="menu-button" id="sides-btn">Sides</button>
-            <button class="menu-button" id="drinks-btn">Drinks</button>
+            <button class="menu-button" id="sushi-btn" onclick="chooseCategory('Sushi')">Sushi</button>
+            <button class="menu-button" id="sides-btn" onclick="chooseCategory('Sides')">Sides</button>
+            <button class="menu-button" id="drinks-btn" onclick="chooseCategory('Drinks')">Drinks</button>
         </div>
-
 
         <!--Menu scroll-->
         <div class="box-wrap">
             <img src="img/leftArr.png" id="leftBtn">
 
-            <div class="box-container">
-                <div class="box" id="bostonRoll">
+            <div class="box-container" id="meal-container">
+            <?php 
+                while($row = $result->fetch_assoc())
+                {
+            ?>
+                <div class="box" id="Sushi">
                     <div class="image">
-                        <img src="img/bostonRoll.png" alt="">
+                        <img src="img/<?php echo $row["mealPic"];?>" alt="">
                         <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
@@ -242,591 +201,43 @@ session_start();
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star-half-alt"></i>
                         </div>
-                        <h3>Boston roll</h3>
-                        <p>Colorful fish roe.</p>
+                        <h3><?php echo $row["mealName"]?></h3>
+                        <p><?php echo $row["description"]?></p>
                         <a href="#" class="btn">Add to cart</a>
-                        <span class="price">RM 3.99</span>
+                        <span class="price">RM <?php echo $row["price"]?></span>
                     </div>
                 </div>
-
-                <div class="box">
-                    <div class="image">
-                        <img src="img/tomago.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>
-                    </div>
-                    <div class="content">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <h3>Tomago</h3>
-                        <p>Elegant, luxury Swiss watches.</p>
-                        <a href="#" class="btn">Add to cart</a>
-                        <span class="price">RM 2.99</span>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="image">
-                        <img src="img/kani.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>
-                    </div>
-                    <div class="content">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <h3>Kani</h3>
-                        <p>crab meat made from fish</p>
-                        <a href="#" class="btn">Add to cart</a>
-                        <span class="price">RM 2.99</span>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="image">
-                        <img src="img/unagi.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>
-                    </div>
-                    <div class="content">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h3>Unagi</h3>
-                        <p>Grilled freshwater eel.</p>
-                        <a href="#" class="btn">Add to cart</a>
-                        <span class="price">RM 4.20</span>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="image">
-                        <img src="img/gunkan.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>
-                    </div>
-                    <div class="content">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h3>Gunkan</h3>
-                        <p>Seaweed-wrapped sushi delight.</p>
-                        <a href="#" class="btn">Add to cart</a>
-                        <span class="price">RM 3.50</span>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="image">
-                        <img src="img/uramaki.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>
-                    </div>
-                    <div class="content">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h3>Uramaki</h3>
-                        <p>Inside-out sushi rolls</p>
-                        <a href="#" class="btn">Add to cart</a>
-                        <span class="price">RM 4.80</span>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="image">
-                        <img src="img/tunaOni.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>
-                    </div>
-                    <div class="content">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <h3>Tuna Onigiri</h3>
-                        <p>Rice stuffed with tuna</p>
-                        <a href="#" class="btn">Add to cart</a>
-                        <span class="price">RM 5.60</span>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="image">
-                        <img src="img/avocadoMaki.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>
-                    </div>
-                    <div class="content">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h3>Avocado maki</h3>
-                        <p>Rolled avocado sushi.</p>
-                        <a href="#" class="btn">Add to cart</a>
-                        <span class="price">RM2.80</span>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="image">
-                        <img src="img/miCombo.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>
-                    </div>
-                    <div class="content">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <h3>Maki Inari Combo</h3>
-                        <p>Sushi roll, tofu pockets.</p>
-                        <a href="#" class="btn">Add to cart</a>
-                        <span class="price">RM 6.80</span>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="image">
-                        <img src="img/makiSet.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>
-                    </div>
-                    <div class="content">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <h3>Maki Set</h3>
-                        <p>sushi roll set.</p>
-                        <a href="#" class="btn">Add to cart</a>
-                        <span class="price">RM 6.20</span>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="image">
-                        <img src="img/eelmaki.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>
-                    </div>
-                    <div class="content">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <h3>Eel Maki</h3>
-                        <p>Rolled freshwater eel</p>
-                        <a href="#" class="btn">Add to cart</a>
-                        <span class="price">RM 4.30</span>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="image">
-                        <img src="img/kappaRoll.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>
-                    </div>
-                    <div class="content">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <h3>Kappa roll</h3>
-                        <p>Cucumber sushi roll.</p>
-                        <a href="#" class="btn">Add to cart</a>
-                        <span class="price">RM 3.99</span>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="image">
-                        <img src="img/gunkanmaki.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>
-                    </div>
-                    <div class="content">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <h3>Gunkan Maki</h3>
-                        <p> Gunkan style sushi.</p>
-                        <a href="#" class="btn">Add to cart</a>
-                        <span class="price">RM 2.99</span>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="image">
-                        <img src="img/salmonOni.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>
-                    </div>
-                    <div class="content">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <h3>Salmon Onigiri</h3>
-                        <p>Rice stuffed with salmon.</p>
-                        <a href="#" class="btn">Add to cart</a>
-                        <span class="price">RM 6.60</span>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="image">
-                        <img src="img/fishOni.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>
-                    </div>
-                    <div class="content">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <h3>Fish Onigiri</h3>
-                        <p>Rice stuffed with fish.</p>
-                        <a href="#" class="btn">Add to cart</a>
-                        <span class="price">RM 5.50</span>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="image">
-                        <img src="img/sashimiTemaki.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>
-                    </div>
-                    <div class="content">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <h3>Sashimi Temaki</h3>
-                        <p>Hand-rolled sashimi cone.</p>
-                        <a href="#" class="btn">Add to cart</a>
-                        <span class="price">RM 5.80</span>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="image">
-                        <img src="img/vegeTemaki.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>
-                    </div>
-                    <div class="content">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <h3>Vege Temaki</h3>
-                        <p>Vegetable hand rolls.</p>
-                        <a href="#" class="btn">Add to cart</a>
-                        <span class="price">RM 4.90</span>
-                    </div>
-                </div>
-
-                <div class="box" id="chocoTaiyaki">
-                    <div class="image">
-                        <img src="img/chocoTaiyaki.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>
-                    </div>
-                    <div class="content">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <h3>Choco Taiyaki</h3>
-                        <p>Chocolate-filled fish cake.</p>
-                        <a href="#" class="btn">Add to cart</a>
-                        <span class="price">RM 6.80</span>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="image">
-                        <img src="img/matcha.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>
-                    </div>
-                    <div class="content">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <h3>Matcha Taiyaki</h3>
-                        <p>Matcha-filled fish cake.</p>
-                        <a href="#" class="btn">Add to cart</a>
-                        <span class="price">RM 6.80</span>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="image">
-                        <img src="img/vanilla.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>
-                    </div>
-                    <div class="content">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <h3>Vanilla Taiyaki</h3>
-                        <p>Vanilla-filled fish cake.</p>
-                        <a href="#" class="btn">Add to cart</a>
-                        <span class="price">RM 6.80</span>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="image">
-                        <img src="img/matchaCake.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>
-                    </div>
-                    <div class="content">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <h3>Uji-matcha Cake</h3>
-                        <p>Matcha-flavored cake delight.</p>
-                        <a href="#" class="btn">Add to cart</a>
-                        <span class="price">RM 9.80</span>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="image">
-                        <img src="img/mochi.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>
-                    </div>
-                    <div class="content">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <h3>RedBean Mochi</h3>
-                        <p>Sweet red bean mochi.</p>
-                        <a href="#" class="btn">Add to cart</a>
-                        <span class="price">RM 5.80</span>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="image">
-                        <img src="img/daifuku.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>
-                    </div>
-                    <div class="content">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <h3>Daifuku</h3>
-                        <p>Strawberry stuffed mochi.</p>
-                        <a href="#" class="btn">Add to cart</a>
-                        <span class="price">RM 7.80</span>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="image">
-                        <img src="img/takoyaki.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>
-                    </div>
-                    <div class="content">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <h3>Takoyaki</h3>
-                        <p>Octopus-filled savory balls.</p>
-                        <a href="#" class="btn">Add to cart</a>
-                        <span class="price">RM 6.30</span>
-                    </div>
-                </div>
-
-                <div class="box" id="hotMatcha">
-                    <div class="image">
-                        <img src="img/hotmatcha.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>
-                    </div>
-                    <div class="content">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <h3>Hot Matcha</h3>
-                        <p>Hot brewed green tea.</p>
-                        <a href="#" class="btn">Add to cart</a>
-                        <span class="price">RM 2.00</span>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="image">
-                        <img src="img/hotchoco.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>
-                    </div>
-                    <div class="content">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <h3>Hot Chocolate</h3>
-                        <p>Warm chocolate drink.</p>
-                        <a href="#" class="btn">Add to cart</a>
-                        <span class="price">RM 6.99</span>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="image">
-                        <img src="img/matchalatte.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>
-                    </div>
-                    <div class="content">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <h3>Iced matcha Latte</h3>
-                        <p>Cold matcha milk drink.</p>
-                        <a href="#" class="btn">Add to cart</a>
-                        <span class="price">RM 8.80</span>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="image">
-                        <img src="img/OrenCocktail.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>
-                    </div>
-                    <div class="content">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <h3>Oren Cocktail</h3>
-                        <p>Refreshing orange cocktail.</p>
-                        <a href="#" class="btn">Add to cart</a>
-                        <span class="price">RM 12.90</span>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="image">
-                        <img src="img/wCocktail.png" alt="">
-                        <a href="#" class="fas fa-heart"></a>
-                    </div>
-                    <div class="content">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <h3>Watermelon Cocktail</h3>
-                        <p>Refreshing watermelon drink.</p>
-                        <a href="#" class="btn">Add to cart</a>
-                        <span class="price">RM 12.90</span>
-                    </div>
-                </div>
-
-
+                <?php 
+                    }
+                ?>
+               
             </div>
             <img src="img/rightArr.png" id="rightBtn">
         </div>
 
     </section>
-
-
-
-
-
+    <script>
+            function chooseCategory(category) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        document.getElementById("meal-container").innerHTML = xhr.responseText;
+                    } else {
+                        console.error('Error fetching meals:', xhr.status);
+                    }
+                }
+            };
+        
+        xhr.open('GET', '../backend/selectMenu.php?category=' + category, true);
+        xhr.send();
+        }
+    </script>
 
     <!--swiper js-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!--link to JS-->
     <script src="JS/main.js"> </script>
-
-
 
 </body>
 
