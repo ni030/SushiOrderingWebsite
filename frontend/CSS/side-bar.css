@@ -1,0 +1,36 @@
+.sidebar {
+    position: fixed; /* Fix the sidebar to the left */
+    top: 60px;
+    left: 0;
+    height: 100%; /* Full height */
+    width: 250px; /* Width of the sidebar */
+    background-color: #835a5a; /* Dark background color */
+    padding-top: 20px; /* Top padding */
+    z-index: 1000; /* Ensure the sidebar is on top */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: all 0.3s; /* Smooth transition for toggling */
+}
+
+.sidebar a {
+    padding: 15px 20px; /* Padding for links */
+    text-decoration: none; /* Remove underline */
+    font-size: 14px; /* Font size */
+    color: #f4e7d4; /* Light text color */
+    display: block; /* Block display for full width */
+    transition: 0.3s; /* Transition for hover effect */
+}
+
+.sidebar a:hover, .sidebar a.active{
+    color: #541616; /* White text color on hover */
+    text-decoration: underline;
+}
+
+.sidebar-menu {
+    list-style-type: none; /* Remove list bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+}
+
+.sidebar-menu li {
+    margin-bottom: 10px; /* Space between items */
+}
