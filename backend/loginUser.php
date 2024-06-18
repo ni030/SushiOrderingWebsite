@@ -1,6 +1,6 @@
 <?php
 
-require_once ("connection.php");
+require_once("connection.php");
 
 if ((isset($_POST["MM_select"])) && $_POST["MM_select"] == "Login") {
     //Check for empty inserted value(s)
@@ -22,7 +22,8 @@ if ((isset($_POST["MM_select"])) && $_POST["MM_select"] == "Login") {
 
         //Detect is the email entered is exist
         if ($count == 0) {
-            exit("User entered is no exist.");
+            header("Location: ../frontend/login.php?signup=email");
+            exit();
         } else {
             //Password Decryption
             // Store the cipher method
@@ -56,13 +57,11 @@ if ((isset($_POST["MM_select"])) && $_POST["MM_select"] == "Login") {
                 // echo "login success".$_SESSION["name"];
                 header("location: ../frontend/index.php");
             } else {
-                echo "Invalid password.";
+                header("Location: ../frontend/login.php?signup=pass");
+                exit();
             }
         }
-
     }
 }
 
 $conn->close();
-
-?>
