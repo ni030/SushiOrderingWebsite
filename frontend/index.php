@@ -30,6 +30,8 @@
 
     <link rel="stylesheet" href="CSS/nav.css">
     <script defer src="js/nav.js"></script>
+    <script defer src="JS/cart.js"></script>
+    
 
     <!-- jQuery CDN -->
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
@@ -43,38 +45,45 @@
 </head>
 
 <body>
+<!--nav bar-->
 <nav class="navbar">
-        <div class="navbar-left">
-            <div class="navbar-brand">
-                <a href="#" class="navbar-logo">
-                    <img src="img/logo.PNG" alt="Logo">
-                </a>
-                <span class="shop-name">Sushi Bliss</span>
+            <div class="navbar-left">
+                <div class="navbar-brand">
+                    <a href="#" class="navbar-logo">
+                        <img src="img/logo.PNG" alt="Logo">
+                    </a>
+                    <span class="shop-name">Sushi Bliss</span>
+                </div>
+                <ul class="navbar-menu">
+                    <li><a href="index.php" id="home-link">Home</a></li>
+                    <li><a href="menuPage.php" id="menu-link">Menu</a></li>
+                    <li><a href="promotion.php" id="promotion-link">Promotion</a></li>
+                </ul>
             </div>
-            <ul class="navbar-menu">
-                <li><a href="index.php" id="home-link">Home</a></li>
-                <li><a href="menuPage.php" id="menu-link">Menu</a></li>
-                <li><a href="promotion.php" id="promotion-link">Promotion</a></li>
-            </ul>
-        </div>
-        <div class="navbar-profile">
-        <a href="userAccount.php">
-        <div>
-            <?php
-            if ($_SESSION["loggedin"] === TRUE) {
-                echo "HI, " . $_SESSION["name"];
-            } else {
-                echo "Login";
-            }
+            <div class="navbar-profile">
+            <a href="userAccount.php">
+            <div>
+                <?php
+                if ($_SESSION["loggedin"] === TRUE) {
+                    echo "HI, " . $_SESSION["name"];
+                } else {
+                    echo "Login";
+                }
+    
+                if(!isset($_SESSION["loggedin"])) {
+                    echo "Login";
+                }
+                ?>
+            </div>
+            </a>
 
-            if(!isset($_SESSION["loggedin"])) {
-                echo "Login";
-            }
-            ?>
-        </div>
-    </a>
-        </div>
-    </nav>
+            <div class="navCart">
+            <a href="cart.html#sushi-cart" id="cart-link">  <i style="margin-right: 1%;" class="fa-solid fa-cart-shopping justify-content-end fa-xl" ></i></a>
+            </div>   
+            
+           
+            </div>
+        </nav>
 
     <!-- Home section -->
     <section class="home" id="home">

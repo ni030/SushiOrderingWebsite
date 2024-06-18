@@ -28,6 +28,7 @@
         <link rel="stylesheet" href="CSS/nav.css">
 
         <script defer src="js/nav.js"></script>
+        <script defer src="js/cart.js"></script>
 
     </head>
 
@@ -62,7 +63,13 @@
                 }
                 ?>
             </div>
-        </a>
+            </a>
+
+            <div class="navCart">
+            <a href="cart.html#sushi-cart" id="cart-link">  <i style="margin-right: 1%;" class="fa-solid fa-cart-shopping justify-content-end fa-xl" ></i></a>
+            </div>   
+            
+           
             </div>
         </nav>
 

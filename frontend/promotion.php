@@ -19,11 +19,15 @@
         <meta name="viewport" content="width=device-width ,initial-scale=1.0">
         <title>Sushi Bliss Ordering Website</title>
 
+        <!--font awesome cdn link-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
         <!--link to css-->
         <link rel="stylesheet" href="CSS/style.css">
         <link rel="stylesheet" href="CSS/nav.css">
 
-        <script defer src="js/nav.js"></script>
+        <script defer src="JS/nav.js"></script>
+        <script defer src="JS/cart.js"></script>
 
         <style>
             body {
@@ -73,7 +77,13 @@
                 }
                 ?>
             </div>
-        </a>
+            </a>
+
+            <div class="navCart">
+            <a href="cart.html#sushi-cart" id="cart-link">  <i style="margin-right: 1%;" class="fa-solid fa-cart-shopping justify-content-end fa-xl" ></i></a>
+            </div>   
+            
+           
             </div>
         </nav>
 
