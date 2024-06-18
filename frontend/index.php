@@ -8,7 +8,6 @@
     $sql2 = "SELECT * FROM meal WHERE category = 'Promotion'";
     $result2 = mysqli_query($conn, $sql2);
 ?>
-?>
 
 <!DOCTYPE html>
 <html lang="'en">
@@ -30,8 +29,6 @@
 
     <link rel="stylesheet" href="CSS/nav.css">
     <script defer src="js/nav.js"></script>
-    <script defer src="JS/cart.js"></script>
-    
 
     <!-- jQuery CDN -->
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
@@ -45,45 +42,39 @@
 </head>
 
 <body>
-<!--nav bar-->
 <nav class="navbar">
-            <div class="navbar-left">
-                <div class="navbar-brand">
-                    <a href="#" class="navbar-logo">
-                        <img src="img/logo.PNG" alt="Logo">
-                    </a>
-                    <span class="shop-name">Sushi Bliss</span>
-                </div>
-                <ul class="navbar-menu">
-                    <li><a href="index.php" id="home-link">Home</a></li>
-                    <li><a href="menuPage.php" id="menu-link">Menu</a></li>
-                    <li><a href="promotion.php" id="promotion-link">Promotion</a></li>
-                </ul>
+        <div class="navbar-left">
+            <div class="navbar-brand">
+                <a href="#" class="navbar-logo">
+                    <img src="./img/logo.PNG" alt="Logo">
+                </a>
+                <span class="shop-name">Sushi Bliss</span>
             </div>
-            <div class="navbar-profile">
-            <a href="userAccount.php">
-            <div>
-                <?php
-                if ($_SESSION["loggedin"] === TRUE) {
-                    echo "HI, " . $_SESSION["name"];
-                } else {
-                    echo "Login";
-                }
-    
-                if(!isset($_SESSION["loggedin"])) {
-                    echo "Login";
-                }
-                ?>
-            </div>
-            </a>
+            <ul class="navbar-menu">
+                <li><a href="index.php" id="home-link">Home</a></li>
+                <li><a href="menu.html" id="menu-link">Menu</a></li>
+                <li><a href="promotion.html" id="promotion-link">Promotion</a></li>
+            </ul>
+        </div>
+        <div class="navbar-profile">
+        <a href="userAccount.php">
+        <div>
+            <?php
+            if ($_SESSION["loggedin"] === TRUE) {
+                echo "HI, " . $_SESSION["name"]."<br>";
+                echo "<a href=\"../backend/viewCart.php\">CART<a>";
+            } else {
+                echo "Login";
+            }
 
-            <div class="navCart">
-            <a href="cart.html#sushi-cart" id="cart-link">  <i style="margin-right: 1%;" class="fa-solid fa-cart-shopping justify-content-end fa-xl" ></i></a>
-            </div>   
-            
-           
-            </div>
-        </nav>
+            if(!isset($_SESSION["loggedin"])) {
+                echo "Login";
+            }
+            ?>
+        </div>
+    </a>
+        </div>
+    </nav>
 
     <!-- Home section -->
     <section class="home" id="home">
@@ -167,7 +158,7 @@
                     <span class="discounted-price">RM <?php echo $row2["price"]?></span>
                     <span class="original-price">RM 5.50</span>
                 </div>
-                <a href="#" class="btn">add to cart</a>
+                <a href="../backend/mealDetail.php?meal=<?php echo $row2['mealID']?>" class="btn">add to cart</a>
             </div>
             <?php 
                 }
@@ -200,6 +191,7 @@
                 <div class="box" id="Sushi">
                     <div class="image">
                         <img src="img/<?php echo $row["mealPic"];?>" alt="">
+                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -211,7 +203,7 @@
                         </div>
                         <h3><?php echo $row["mealName"]?></h3>
                         <p><?php echo $row["description"]?></p>
-                        <a href="#" class="btn">Add to cart</a>
+                        <a href="../backend/mealDetail.php?meal=<?php echo $row['mealID']?>" class="btn">Add to cart</a>
                         <span class="price">RM <?php echo $row["price"]?></span>
                     </div>
                 </div>
