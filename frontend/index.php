@@ -47,14 +47,14 @@
         <div class="navbar-left">
             <div class="navbar-brand">
                 <a href="#" class="navbar-logo">
-                    <img src="../img/logo.PNG" alt="Logo">
+                    <img src="img/logo.PNG" alt="Logo">
                 </a>
                 <span class="shop-name">Sushi Bliss</span>
             </div>
             <ul class="navbar-menu">
                 <li><a href="index.php" id="home-link">Home</a></li>
-                <li><a href="menu.html" id="menu-link">Menu</a></li>
-                <li><a href="promotion.html" id="promotion-link">Promotion</a></li>
+                <li><a href="menuPage.php" id="menu-link">Menu</a></li>
+                <li><a href="promotion.php" id="promotion-link">Promotion</a></li>
             </ul>
         </div>
         <div class="navbar-profile">
@@ -191,7 +191,6 @@
                 <div class="box" id="Sushi">
                     <div class="image">
                         <img src="img/<?php echo $row["mealPic"];?>" alt="">
-                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
