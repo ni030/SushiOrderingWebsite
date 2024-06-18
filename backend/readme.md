@@ -6,7 +6,6 @@
 - :heavy_check_mark: User logout
 - :heavy_check_mark: User profile info display & edit
 - :heavy_check_mark: User change password
-- :heavy_check_mark: User add, edit and delete address
-- :heavy_check_mark: menu (meal) display
+
 
 **LIM JIA AN**
