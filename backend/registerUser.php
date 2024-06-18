@@ -15,7 +15,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "Register Now")) {
             $stmt->store_result();
 
             if ($stmt->num_rows > 0) {
-                header("Location: ../frontend/register.php?singup=email");
+                header("Location: ../frontend/register.php?signup=email");
                 exit();
             }
             $stmt->close();
@@ -27,7 +27,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "Register Now")) {
             $stmt2->store_result();
 
             if ($stmt2->num_rows > 0) {
-                header("Location: ../frontend/register.php?singup=phone");
+                header("Location: ../frontend/register.php?signup=phone");
                 exit();
             }
             $stmt2->close();
@@ -72,7 +72,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "Register Now")) {
             echo "Error";
         }
         require_once("checkLoginSession.php");
-        header("Location: ../frontend/login.php");
+        header("Location: ../frontend/login.php?signup=success");
     }
 }
 
