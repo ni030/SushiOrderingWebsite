@@ -1,0 +1,61 @@
+
+:root{
+    --rice: #f4e7d4;
+    --red: #ab4247;
+    --grey:#f5f5f5;
+}
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding-top: 4.5rem;
+    background-color: #fffdf6; /* Change background color to green */
+    overflow: auto;
+}
+
+.btn-purchase {
+    text-align: center;
+    margin: auto;
+    padding: 2%;
+    width: 50%;
+}
+
+#sushi-cart {
+    padding: 5% 5%;
+}
+
+#sushi-cart h3{
+    background-color: #ab4247;
+    border-radius: 2rem;
+    font-size: 20px;
+    color: #ffffff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.cart-total {
+    text-align: right;
+    font-size: 1.3rem;
+}
+
+.up-icon {
+    color: black;
+    position: fixed;
+    float: right;
+    z-index: 1;
+    left: 95%;
+    top: 85%;
+    font-size: 2rem;
+}
+
+/* Override Bootstrap button styles for purchase button */
+.btn-purchase .btn {
+    background-color: var(--red); /* Change button background to blue */
+    border-color: var(--red); /* Change button border to blue */
+    color: #fff; /* Ensure button text color remains readable */
+}
+
+/* Additional font color override for specific elements */
+h3, th, td, .cart-total{
+    color:#3c2c2c; 
+}
