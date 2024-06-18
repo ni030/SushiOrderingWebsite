@@ -215,24 +215,6 @@ section:nth-child(even){
     transition: transform 0.3s;
 }
 
-.menu .box-container .box .image .fa-heart{
-    position: absolute;
-    top: 2.5rem; right: 2.5rem;
-
-    height: 5rem;
-    width: 5rem;
-    line-height: 5rem;
-    text-align: center;
-    font-size: 2rem;
-    background: #f4e7d4;
-    border-radius: 50%;
-    color: #ab4247;
-}
-.menu .box-container .box .image .fa-heart:hover{
-    background-color: #ab4247;
-    color: #f4e7d4;
-}
-
 .menu .box-container .box .content{
     padding: 1rem;
     padding-top: 0;

@@ -87,27 +87,6 @@ html{
     transition: transform 0.3s;
 }
 
-.menu .sushibox-container .box .image .fa-heart,
-.menu .sidesbox-container .box .image .fa-heart,
-.menu .drinksbox-container .box .image .fa-heart{
-    position: absolute;
-    top: 2.5rem; right: 2.5rem;
-
-    height: 5rem;
-    width: 5rem;
-    line-height: 5rem;
-    text-align: center;
-    font-size: 2rem;
-    background: #f4e7d4;
-    border-radius: 50%;
-    color: #ab4247;
-}
-.menu .sushibox-container .box .image .fa-heart:hover,
-.menu .sidesbox-container .box .image .fa-heart:hover,
-.menu .drinksbox-container .box .image .fa-heart:hover{
-    background-color: #ab4247;
-    color: #f4e7d4;
-}
 
 .menu .sushibox-container .box .content,
 .menu .sidesbox-container .box .content,
@@ -147,20 +126,20 @@ html{
 .menu .drinksbox-container .box .content .btn {
     margin-top: 1rem;
     display: inline-block;
-    font-size: 1.7rem;
+    font-size: 1.3rem;
     font-weight: bold;
     color: #541616;
     background: var(--rice);
     border-radius: .5rem;
     cursor: pointer;
-    padding: .8rem 2rem;
+    padding: .5rem 1rem;
 }
 
 .menu .sushibox-container .box .content .btn:hover,
 .menu .sidesbox-container .box .content .btn:hover,
 .menu .drinksbox-container .box .content .btn:hover {
     background: var(#beb2a1);
-    letter-spacing: .1rem;
+    letter-spacing: .04rem;
 }
 
 .menu .sushibox-container .box .content .price,
@@ -176,7 +155,7 @@ html{
 
     color:#835a5a;
     font-size: 3rem;
-    padding-top: 5rem;
+    padding-top: 10rem;
     padding-left: 55px;
 }
 
