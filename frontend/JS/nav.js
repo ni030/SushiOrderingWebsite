@@ -6,7 +6,7 @@ if(currentPage.includes("frontend/index.php")){
 else if(currentPage.includes("frontend/menuPage.php")){
     document.getElementById('menu-link').classList.add('active');
 }
-else if(currentPage.includes("frontend/promotion.html")){
+else if(currentPage.includes("frontend/promotion.php")){
     document.getElementById('promo-link').classList.add('active');
 }
 else if(currentPage==="/SushiOrderingWebsite-main/frontend/"){
