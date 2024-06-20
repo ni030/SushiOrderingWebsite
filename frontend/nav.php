@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+require_once("../backend/connection.php"); ?>
+
 <nav class="navbar">
     <div class="navbar-left">
         <div class="navbar-brand">
@@ -6,23 +11,48 @@
             </a>
             <span class="shop-name">Sushi Bliss</span>
         </div>
+        <ul id="sideBar">
+            <li onclick=hideSideBar()><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                    width="24px" fill="black">
+                    <path
+                        d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                </svg></a></li>
+            <li><a href="index.php" class="home-link">Home</a></li>
+            <li><a href="menuPage.php" class="menu-link">Menu</a></li>
+            <li><a href="promotion.php" clas="promo-link">Promotion</a></li>
+            <li><a href="../backend/viewCart.php" class="cart-link">Cart</a></li>
+            <?php
+            if ($_SESSION["loggedin"] === TRUE) { ?>
+            <li><a href="userAccount.php">Profile Page</a></li>
+            <?php } else { ?>
+            <li><a href="login.php">Login</a></li>
+            <?php } ?>
+        </ul>
         <ul class="navbar-menu">
-            <li><a href="index.php" id="home-link">Home</a></li>
-            <li><a href="menuPage.php" id="menu-link">Menu</a></li>
-            <li><a href="promotion.php" id="promo-link">Promotion</a></li>
+            <li><a href="index.php" class="home-link">Home</a></li>
+            <li><a href="menuPage.php" class="menu-link">Menu</a></li>
+            <li><a href="promotion.php" class="promo-link">Promotion</a></li>
         </ul>
     </div>
+    <div id="sideBaricon" onclick=showSideBar()>
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#f4e7d4">
+            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+        </svg>
+    </div>
     <div class="navbar-profile">
-        <a href="userAccount.php">
-            <div>
-                <?php
-                if ($_SESSION["loggedin"] === TRUE) {
-                    echo "Hi, " . $_SESSION["name"];
-                } else {
-                    echo "Login";
-                }
-                ?>
-            </div>
-        </a>
+        <ul class="login">
+            <?php
+            if ($_SESSION["loggedin"] === TRUE) { ?>
+            <li><a href="userAccount.php"><?php echo "Hi, " . $_SESSION["name"]; ?></a></li>
+            <?php } else { ?>
+            <li><a href="login.php">Login</a></li>
+            <?php } ?>
+        </ul>
+
+        <div class="navCart">
+            <a href="../backend/viewCart.php" class="cart-link">
+                <i style="margin-right: 1%;" class="fa-solid fa-cart-shopping justify-content-end fa-xl"></i>
+            </a>
+        </div>
     </div>
 </nav>
