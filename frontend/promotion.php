@@ -3,26 +3,23 @@
     session_start();
 
     require_once("../backend/connection.php");
-    $sql = "SELECT * FROM meal";
-    $result = mysqli_query($conn, $sql);
 
-    $sql2 = "SELECT * FROM meal WHERE category = 'Promotion'";
-    $result2 = mysqli_query($conn, $sql2);
-?>
+    $sql = "SELECT * FROM meal WHERE category = 'Promotion'";
+    $result = mysqli_query($conn, $sql);
 ?>
 
 <!DOCTYPE html>
-<html lang="'en">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width ,initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sushi Bliss Ordering Website</title>
 
-        <!--font awesome cdn link-->
+        <!-- Font Awesome CDN link -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-        <!--link to css-->
+        <!-- CSS links -->
         <link rel="stylesheet" href="CSS/style.css">
         <link rel="stylesheet" href="CSS/nav.css">
 
@@ -42,10 +39,20 @@
                 padding-bottom: 3rem;
                 text-transform: uppercase;
             }
+
+            .box .content h3 {
+                padding-bottom:1rem;
+                font-size: 0.8rem;
+            }
+
+            .prices {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
         </style>
 
     </head>
-
     <body>
         <!--nav bar-->
         <nav class="navbar">
@@ -63,63 +70,61 @@
                 </ul>
             </div>
             <div class="navbar-profile">
-            <a href="userAccount.php">
-            <div>
-                <?php
-                if ($_SESSION["loggedin"] === TRUE) {
-                    echo "HI, " . $_SESSION["name"];
-                } else {
-                    echo "Login";
-                }
-    
-                if(!isset($_SESSION["loggedin"])) {
-                    echo "Login";
-                }
-                ?>
-            </div>
-            </a>
+                <a href="userAccount.php">
+                    <div>
+                        <?php
+                        if ($_SESSION["loggedin"] === TRUE) {
+                            echo "HI, " . $_SESSION["name"];
+                        } else {
+                            echo "Login";
+                        }
 
-            <div class="navCart">
-            <a href="cart.html#sushi-cart" id="cart-link">  <i style="margin-right: 1%;" class="fa-solid fa-cart-shopping justify-content-end fa-xl" ></i></a>
-            </div>   
-            
-           
+                        if(!isset($_SESSION["loggedin"])) {
+                            echo "Login";
+                        }
+                        ?>
+                    </div>
+                </a>
+
+                <div class="navCart">
+                    <a href="../backend/viewCart.php" id="cart-link">
+                        <i style="margin-right: 1%;" class="fa-solid fa-cart-shopping justify-content-end fa-xl"></i>
+                    </a>
+                </div>  
             </div>
         </nav>
 
-    <!--promos-->
-    <section class="promotion" id="promotion">
-        <h3 class="promoheading"> limited time Promotions !</h3>
-
-        <div class="box-container">
-            <?php 
-                while($row2 = $result2->fetch_assoc())
-                {
-            ?>
-            <div class="box">
-                <img src="img/<?php echo $row2["mealPic"];?>" alt="">
-                <p><?php echo $row2["mealName"]?></p>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+        <!-- Promotions section -->
+        <section class="promotion" id="promotion">
+            <h3 class="promoheading">limited time Promotions!</h3>
+            <div class="box-container">
+                <?php 
+                    while($row = $result->fetch_assoc())
+                    {
+                ?>
+                <div class="box">
+                    <img src="img/<?php echo $row["mealPic"]; ?>" alt="">
+                    <div class="content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 class="sushi-name"><?php echo $row["mealName"]; ?></h3>
+                        <p><?php echo $row["description"]; ?></p>
+                        <div class="prices">
+                            <span class="discounted-price">RM <?php echo $row["price"]; ?></span>
+                            <span class="original-price">RM 5.50</span>
+                        </div>
+                        <a href="../backend/mealDetail.php?meal=<?php echo $row['mealID']; ?>" class="btn">Add to cart</a>
+                    </div>
                 </div>
-                <div class="prices">
-                    <span class="discounted-price">RM <?php echo $row2["price"]?></span>
-                    <span class="original-price">RM 5.50</span>
-                </div>
-                <a href="#" class="btn">add to cart</a>
+                <?php 
+                    }
+                ?>
             </div>
-            <?php 
-                }
-            ?>
-        </div>
-
-    </section>
-        
-
+        </section>
     </body>
-
 </html>

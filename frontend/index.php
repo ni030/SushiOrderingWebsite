@@ -42,39 +42,45 @@
 </head>
 
 <body>
+<!--nav bar-->
 <nav class="navbar">
-        <div class="navbar-left">
-            <div class="navbar-brand">
-                <a href="#" class="navbar-logo">
-                    <img src="./img/logo.PNG" alt="Logo">
-                </a>
-                <span class="shop-name">Sushi Bliss</span>
+            <div class="navbar-left">
+                <div class="navbar-brand">
+                    <a href="#" class="navbar-logo">
+                        <img src="img/logo.PNG" alt="Logo">
+                    </a>
+                    <span class="shop-name">Sushi Bliss</span>
+                </div>
+                <ul class="navbar-menu">
+                    <li><a href="index.php" id="home-link">Home</a></li>
+                    <li><a href="menuPage.php" id="menu-link">Menu</a></li>
+                    <li><a href="promotion.php" id="promotion-link">Promotion</a></li>
+                </ul>
             </div>
-            <ul class="navbar-menu">
-                <li><a href="index.php" id="home-link">Home</a></li>
-                <li><a href="menu.html" id="menu-link">Menu</a></li>
-                <li><a href="promotion.html" id="promotion-link">Promotion</a></li>
-            </ul>
-        </div>
-        <div class="navbar-profile">
-        <a href="userAccount.php">
-        <div>
-            <?php
-            if ($_SESSION["loggedin"] === TRUE) {
-                echo "HI, " . $_SESSION["name"]."<br>";
-                echo "<a href=\"../backend/viewCart.php\">CART<a>";
-            } else {
-                echo "Login";
-            }
+            <div class="navbar-profile">
+                <a href="userAccount.php">
+                    <div>
+                        <?php
+                        if ($_SESSION["loggedin"] === TRUE) {
+                            echo "HI, " . $_SESSION["name"];
+                        } else {
+                            echo "Login";
+                        }
 
-            if(!isset($_SESSION["loggedin"])) {
-                echo "Login";
-            }
-            ?>
-        </div>
-    </a>
-        </div>
-    </nav>
+                        if(!isset($_SESSION["loggedin"])) {
+                            echo "Login";
+                        }
+                        ?>
+                    </div>
+                </a>
+
+                <div class="navCart">
+                    <a href="../backend/viewCart.php" id="cart-link">
+                        <i style="margin-right: 1%;" class="fa-solid fa-cart-shopping justify-content-end fa-xl"></i>
+                    </a>
+                </div>  
+            </div>
+        </nav>
 
     <!-- Home section -->
     <section class="home" id="home">
@@ -165,7 +171,7 @@
             ?>
         </div>
 
-    </section>
+        </section>
 
     <!--menu-->
     <section class="menu" id="menu">
@@ -191,7 +197,6 @@
                 <div class="box" id="Sushi">
                     <div class="image">
                         <img src="img/<?php echo $row["mealPic"];?>" alt="">
-                        <a href="#" class="fas fa-heart"></a>
                     </div>
                     <div class="content">
                         <div class="stars">
