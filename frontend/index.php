@@ -61,15 +61,16 @@
                 <a href="userAccount.php">
                     <div>
                         <?php
-                        if ($_SESSION["loggedin"] === TRUE) {
-                            echo "HI, " . $_SESSION["name"];
-                        } else {
-                            echo "Login";
-                        }
-
                         if(!isset($_SESSION["loggedin"])) {
                             echo "Login";
+                        }else{
+                            if ($_SESSION["loggedin"] === TRUE) {
+                                echo "HI, " . $_SESSION["name"];
+                            } else {
+                                echo "Login";
+                            }
                         }
+                        
                         ?>
                     </div>
                 </a>
