@@ -25,6 +25,7 @@ document.getElementById('register-form').addEventListener('submit', function(eve
         console.log("enter if condition");
         event.preventDefault(); // Prevent form submission
         document.getElementById('password_error').style.display = 'block';
+        document.getElementById('matched_error').style.display = 'none';
         document.getElementById('email_error').style.display='none';
         document.getElementById('phone_error').style.display='none';
         document.getElementsByName('password')[0].value = ''; // Clear password field
@@ -35,6 +36,7 @@ document.getElementById('register-form').addEventListener('submit', function(eve
     if (password !== confirmPassword) {
         event.preventDefault(); // Prevent form submission
         document.getElementById('matched_error').style.display = 'block';
+        document.getElementById('password_error').style.display = 'none';
         document.getElementById('email_error').style.display='none';
         document.getElementById('phone_error').style.display='none';
         document.getElementsByName('password')[0].value = ''; // Clear password field
