@@ -14,9 +14,6 @@
 
 body {
     margin: 0;
-    background-image:url('../img/profile_back.jpg');
-    background-size: cover;
-    background-position: center;
 }
 
 html, body {
@@ -30,6 +27,14 @@ html, body {
 }
 
 .content{
+    container: flex;
+    height:100vh;
+    background-image:url('../img/profile_back.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.form-container{
     margin-top: 48px;
     margin-left: 250px;
     margin-right: 5px;

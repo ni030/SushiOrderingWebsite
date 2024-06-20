@@ -13,12 +13,6 @@ html, body {
     width: 100%;
     overflow-x: hidden; /* Prevent horizontal scrolling */
 
-:root{
-    --rice: #f4e7d4;
-    --red: #ab4247;
-    --grey:#f5f5f5;
-}
-
 .navbar {
     display: flex;
     align-items: center;
@@ -108,9 +102,75 @@ html, body {
     transition: color 0.3s ease; /* Smooth transition for color change */
 }
 
-
 .navbar-profile a:hover {
     color:#541616; /* Change to your desired hover text color */
+}
+
+.login{
+    list-style: none;
+}
+
+#sideBar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 1000;
+    background-color: #823336;
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    list-style: none;
+    transition: transform 0.3s ease; /* Smooth transition for toggling */
+}
+
+#sideBar li {
+    width: 100%;
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: block; /* Block display for full width */
+}
+
+#sideBar a {
+    width: 100%;
+    text-decoration: none;
+    font-size: 14px;
+    color: #f4e7d4; /* Light text color */
+    transition: 0.3s; /* Transition for hover effect */
+}
+
+#sideBar a:hover, #sideBar a.active {
+    color: #541616; /* Dark text color on hover */
+    text-decoration: underline;
+}
+
+#sideBaricon {
+    display: none;
+    color: #f4e7d4;
+    font-size: 24px;
+}
+
+/* Responsive Styles */
+@media(max-width: 850px){
+    .navbar{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .navbar-menu, .navbar-profile{
+        display:none;
+    }
+    #sideBaricon{
+        display:block;
+    }
+}
+
+@media(max-width: 400px){
+    .sidebar{
+        width:100%;
+    }
 }
 /*
 .content {

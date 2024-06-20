@@ -14,9 +14,7 @@
 
 body {
     margin: 0;
-    background-image:url('../img/profile_back.jpg');
-    background-size: cover;
-    background-position: center;
+    min-height: 100vh;
 }
 
 html, body {
@@ -27,6 +25,18 @@ html, body {
 .navbar{
     padding-left:10px;
     padding-right:10px;
+}
+
+.login{
+    padding-top:13px;
+}
+
+.content{
+    container: flex;
+    height:100vh;
+    background-image:url('../img/profile_back.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 #userProfile{
