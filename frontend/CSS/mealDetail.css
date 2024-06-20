@@ -1,0 +1,116 @@
+:root{
+    --rice: #f4e7d4;
+    --red: #ab4247;
+    --grey:#f5f5f5;
+    --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
+}
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none; border: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+
+html{
+    font-size: 62.5%;
+    scroll-padding-top: 5.5rem;
+    scroll-behavior: smooth;
+    background-color: var(--grey);
+} 
+
+.pagination{
+    padding-top: 10rem;
+    padding-left: 12rem;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ab4247;
+}
+
+
+.meal-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.box {
+    background-size: cover; /* Ensures the background image covers the entire box */
+    border-radius: 12px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 87%; 
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center vertically */
+    padding: 30px;
+}
+
+.meal-card {
+    flex: 1; /* Takes up 1 part of the flex container */
+    max-width: 50%; /* Maximum width for responsiveness */
+    overflow: hidden; /* Ensures image stays within boundaries */
+}
+
+.meal-card img {
+    width: 85%; /* Ensures image fills its container */
+    display: block;
+    border-radius: 12px;
+}
+
+/* Style for the right side (meal details) */
+.meal-info {
+    flex: 1;
+    max-width: 50%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.meal-info h3 {
+    font-size: 45px;
+    margin-bottom: 10px;
+    color: #823a3e;
+}
+
+.meal-info .price {
+    font-size: 24px;
+    padding-bottom: 20px;
+    color: #56282b;
+}
+
+
+.meal-info p {
+    font-size: 22px;
+    padding-bottom: 20px;
+}
+
+.meal-info form {
+    margin-top: 20px;
+}
+
+.meal-info form p {
+    margin-bottom: 10px;
+}
+
+.meal-info form input[type="text"] {
+    width: 50px;
+    padding: 8px;
+    font-size: 20px;
+}
+
+.meal-info form input[type="submit"] {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #823a3e;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.meal-info form input[type="submit"]:hover {
+    background-color: #c18c8f;
+}
