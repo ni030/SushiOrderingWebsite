@@ -32,51 +32,18 @@
     <link rel="stylesheet" href="../frontend/CSS/mealDetail.css">
     <link rel="stylesheet" href="../frontend/CSS/nav.css">
     <link rel="stylesheet" href="../frontend/CSS/style.css">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     
 </head>
 
 <body>
     <!--nav bar-->
-    <nav class="navbar">
-            <div class="navbar-left">
-                <div class="navbar-brand">
-                    <a href="#" class="navbar-logo">
-                        <img src="../frontend/img/logo.PNG" alt="Logo">
-                    </a>
-                    <span class="shop-name">Sushi Bliss</span>
-                </div>
-                <ul class="navbar-menu">
-                    <li><a href="../frontend/index.php" id="home-link">Home</a></li>
-                    <li><a href="../frontend/menuPage.php" id="menu-link">Menu</a></li>
-                    <li><a href="../frontend/promotion.php" id="promotion-link">Promotion</a></li>
-                </ul>
-            </div>
-            <div class="navbar-profile">
-                <a href="../frontend/userAccount.php">
-                    <div>
-                        <?php
-                        if ($_SESSION["loggedin"] === TRUE) {
-                            echo "HI, " . $_SESSION["name"];
-                        } else {
-                            echo "Login";
-                        }
-
-                        if(!isset($_SESSION["loggedin"])) {
-                            echo "Login";
-                        }
-                        ?>
-                    </div>
-                </a>
-
-                <div class="navCart">
-                    <a href="viewCart.php" id="cart-link">
-                        <i style="margin-right: 1%;" class="fa-solid fa-cart-shopping justify-content-end fa-xl"></i>
-                    </a>
-                </div>  
-            </div>
-        </nav>
-
-
+    <?php
+    include("../frontend/nav.php");
+    ?>
 
     <div class="pagination">
         <p> Sushi details </p>
@@ -95,8 +62,15 @@
             <h3 class="price"><?php echo "each for RM " . $row["price"]; ?></h3>
 
             <form method="POST" action="addCart.php">
-                <p>Quantity:  <input type="text" name="quantity" id="quantity"></input></p>
-                <input type="hidden" name="mealID" value="<?php echo $row["mealID"]?>">
+                <div class="quantity">
+                    <span>Quantity: </span>
+                    <div class="counter">
+                        <button class="minus" onclick="changeQuantity('minus'); return false;" type="button">-</button>
+                        <input type="text" class="" name="quantity" id="quantity" value="1">
+                        <button class="plus" onclick="changeQuantity('plus'); return false;" type="button">+</button>
+                    </div>
+                </div>
+                <input type="hidden" name="mealID" value="<?php echo $row['mealID']; ?>">
                 <input type="submit" name="MM_update" value="Add to cart">
             </form>
         </div>
@@ -105,7 +79,9 @@
 
 
     <!-- script tags -->
-    <script src="js/cart.js"></script>
+    <script src="../frontend/js/cart.js">
+
+    </script>
 
 
 

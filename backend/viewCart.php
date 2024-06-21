@@ -74,12 +74,31 @@ $formattedDateTime = date("Y-m-d H:i:s", $timestamp);
             window.location.href = "updateCart.php?newM=" + newMealString + "&newQ=" + newQuantityString;
         }
     </script>
+
+    <!-- Font Awesome CDN link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS links -->
+    <link rel="stylesheet" href="../frontend/CSS/nav.css">
+    <link rel="stylesheet" href="../frontend/CSS/style.css">
+    <link rel="stylesheet" href="../frontend/CSS/viewCart.css">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+
 </head>
 
 <body>
-    <?php echo "Hi, " . $uid; ?>
+    <!--nav bar-->
+    <?php
+    include("../frontend/nav.php");
+    ?>
+
+    <h3 class="promoheading">Cart</h3>
     <form method="POST" action="../backend/checkOut.php">
-        <label for="address">Choose an address:</label>
+        <div class="chooseaddress">
+            <label for="address"> Choose an address: </label>
         <select name="address" id="address">
             <?php
             while ($rowAdd = $resultAdd->fetch_assoc()) {
@@ -87,6 +106,7 @@ $formattedDateTime = date("Y-m-d H:i:s", $timestamp);
                 <option value="<?php echo $rowAdd["addressID"] ?>"><?php echo $rowAdd["addressName"] ?></option>
             <?php } ?>
         </select>
+        </div>
         <table border="1px">
             <tr>
                 <th>Meal Name</th>
@@ -128,9 +148,11 @@ $formattedDateTime = date("Y-m-d H:i:s", $timestamp);
         <input type="hidden" name="orderQuantity" value="<?php echo $row["quantity"]; ?>">
         <input type="hidden" name="totalAmount" value="<?php echo number_format($total, 2); ?>">
         <input type="hidden" name="orderUser" value="<?php echo $uid ?>">
-        <input type="submit" name="MM_insert" value="Checkout">
+        <div class="total-checkout">
+            <h2>Total Payment: $<span id="total"><?php echo number_format($total, 2); ?></span></h2>
+            <input type="submit" name="MM_insert" value="Checkout">
+        </div>
     </form>
-    <h2>Total Payment: $<span id="total"><?php echo number_format($total, 2); ?></span></h2>
 </body>
 
 </html>
