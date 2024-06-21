@@ -17,7 +17,13 @@ if (curPage.includes("register.php?signup=phone")) {
 
 const password = document.getElementsByName('password')[0]; // Get the first element with name 'password'
 const confirmPassword = document.getElementsByName('confirmedPassword')[0]; // Get the first element with name 'confirmedPassword'
-let correct = 0;
+let pass = 0;
+let match = 0;
+var correct=pass+match;
+
+function updateCorrect() {
+    correct = pass + match;
+}
 
 password.addEventListener('keyup', () => {
     console.log("Function is called");
@@ -28,12 +34,13 @@ password.addEventListener('keyup', () => {
     if (!(userPassword.length >= 8 && userPassword.match(lowerCaseLetters) && userPassword.match(upperCaseLetters) && userPassword.match(numbers))) {
         document.getElementById('password_error').style.display = 'block';
         password.classList.add('input-error');
-        correct = 0;
+        pass = 0;
     } else {
         document.getElementById('password_error').style.display = 'none';
         password.classList.remove('input-error');
-        correct = 1;
+        pass = 1;
     }
+    updateCorrect()
 });
 
 confirmPassword.addEventListener('keyup', () => {
@@ -42,13 +49,14 @@ confirmPassword.addEventListener('keyup', () => {
         document.getElementById('matched_error').style.display = 'block';
         password.classList.add('input-error');
         confirmPassword.classList.add('input-error');
-        correct = 1;
+        match = 0;
     } else {
         document.getElementById('matched_error').style.display = 'none';
         password.classList.remove('input-error');
         confirmPassword.classList.remove('input-error');
-        correct = 2;
+        match = 1;
     }
+    updateCorrect()
 });
 
 document.getElementById('register-form').addEventListener('submit', function(event) {
