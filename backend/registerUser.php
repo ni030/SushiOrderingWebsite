@@ -1,5 +1,5 @@
 <?php
-require_once("connection.php");
+require_once ("connection.php");
 $email_error_message = null;
 
 if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "Register Now")) {
@@ -65,20 +65,16 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "Register Now")) {
         );
 
         $sql = "INSERT INTO `user`(`firstName`, `lastName`, `mobileNum`, `email`, `password`, `birthday`) VALUES ('$firstName', '$lastName', '$mobileNum', '$email', '$encryption', '$birthday')";
+        
+        header("Location:createCart.php?email=".$email);
 
         if ($conn->query($sql) === TRUE) {
-            $sql2 = "SELECT * FROM user WHERE email = '$email'";
-            $result2 = mysqli_query($conn, $sql2);
-            $row2 = $result2->fetch_assoc();
-            $userid = $row2["guid"];
-
-            $sql3 = "INSERT INTO `cart`(`userID`) VALUES ($userid)";
             echo "Success";
         } else {
             echo "Error";
         }
-        require_once("checkLoginSession.php");
-        header("Location: ../frontend/login.php?signup=success");
+        //require_once ("checkLoginSession.php");
+        //header("Location: ../frontend/login.php?signup=success");
     }
 }
 
