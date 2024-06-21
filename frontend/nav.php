@@ -1,13 +1,8 @@
-<?php
-session_start();
-
-require_once("../backend/connection.php"); ?>
-
 <nav class="navbar">
     <div class="navbar-left">
         <div class="navbar-brand">
-            <a href="index.php" class="navbar-logo">
-                <img src="img/logo.PNG" alt="Logo">
+            <a href="../frontend/index.php" class="navbar-logo">
+                <img src="../frontend/img/logo.PNG" alt="Logo">
             </a>
             <span class="shop-name">Sushi Bliss</span>
         </div>
@@ -16,22 +11,22 @@ require_once("../backend/connection.php"); ?>
                     width="24px" fill="black">
                     <path
                         d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
-                </svg></a></li>
-            <li><a href="index.php" class="home-link">Home</a></li>
-            <li><a href="menuPage.php" class="menu-link">Menu</a></li>
-            <li><a href="promotion.php" clas="promo-link">Promotion</a></li>
+                </svg></li>
+            <li><a href="../frontend/index.php" class="home-link">Home</a></li>
+            <li><a href="../frontend/menuPage.php" class="menu-link">Menu</a></li>
+            <li><a href="../frontend/promotion.php" clas="promo-link">Promotion</a></li>
             <li><a href="../backend/viewCart.php" class="cart-link">Cart</a></li>
             <?php
             if ($_SESSION["loggedin"] === TRUE) { ?>
-            <li><a href="userAccount.php">Profile Page</a></li>
+            <li><a href="../frontend/userAccount.php">Profile Page</a></li>
             <?php } else { ?>
-            <li><a href="login.php">Login</a></li>
+            <li><a href="../frontend/login.php">Login</a></li>
             <?php } ?>
         </ul>
         <ul class="navbar-menu">
-            <li><a href="index.php" class="home-link">Home</a></li>
-            <li><a href="menuPage.php" class="menu-link">Menu</a></li>
-            <li><a href="promotion.php" class="promo-link">Promotion</a></li>
+            <li><a href="../frontend/index.php" class="home-link">Home</a></li>
+            <li><a href="../frontend/menuPage.php" class="menu-link">Menu</a></li>
+            <li><a href="../frontend/promotion.php" class="promo-link">Promotion</a></li>
         </ul>
     </div>
     <div id="sideBaricon" onclick=showSideBar()>
@@ -43,9 +38,9 @@ require_once("../backend/connection.php"); ?>
         <ul class="login">
             <?php
             if ($_SESSION["loggedin"] === TRUE) { ?>
-            <li><a href="userAccount.php"><?php echo "Hi, " . $_SESSION["name"]; ?></a></li>
+            <li><a href="../frontend/userAccount.php"><?php echo "Hi, " . $_SESSION["name"]; ?></a></li>
             <?php } else { ?>
-            <li><a href="login.php">Login</a></li>
+            <li><a href="../frontend/login.php">Login</a></li>
             <?php } ?>
         </ul>
 

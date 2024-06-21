@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+require_once("../backend/connection.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,11 +25,12 @@
     <?php
     include("nav.php");
     ?>
-    <div class="content">
-        <h1>Let's Get Started!</h1>
-        <h2>Sign up now to enjoy finger lickin' good deals</h2>
+    <div class="container content">
         <div class="form-container">
             <form id="register-form" class="row g-3" method="POST" action="../backend/registerUser.php">
+                <div class="col-md-12">
+                    <h2 style="text-align: center;">Register</h2>
+                </div>
                 <div class="col-md-6">
                     <label for="validationDefault01" class="form-label">First name</label>
                     <input type="text" class="form-control" id="validationDefault01" name="firstName" required>
@@ -39,22 +45,27 @@
                     <label for="inputEmail4" class="form-label">Email</label>
                     <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="abc@gmail.com"
                         required>
+                    <p style=" color: red; display: none;" id="email_error">Email Exist!</p>
                 </div>
 
                 <div class="col-md-12">
                     <label for="validationDefault02" class="form-label">Mobile Number</label>
                     <input type="text" class="form-control" id="validationDefault02" name="mobileNum"
                         placeholder="012-3456789" required>
+                    <p style=" color: red; display: none;" id="phone_error">Mobile Number Exist!</p>
                 </div>
 
                 <div class="col-md-12">
                     <label for="inputPassword4" class="form-label">Password</label>
                     <input type="password" class="form-control" id="inputPassword4" name="password" required>
+                    <p id="password_error" style=" color: red; display: none;">Your password length needs to be at least
+                        8 & contains at least 1 uppercase character & number!</p>
                 </div>
 
                 <div class="col-md-12">
                     <label for="inputPassword4" class="form-label">Confirm Password</label>
                     <input type="password" class="form-control" id="inputPassword4" name="confirmedPassword" required>
+                    <p id="matched_error" style=" color: red; display: none;">Your password does not match!</p>
                 </div>
 
                 <!-- Need 1 input for birthday -->
@@ -62,15 +73,8 @@
                     <label for="inputPassword4" class="form-label">Birthday</label>
                     <input type="date" class="form-control" id="inputPassword4" name="birthday" required>
                 </div>
-                <div class="col-12">
-                    <p id="matched_error" style=" color: red; display: none;">Your password does not match!</p>
-                    <p id="password_error" style=" color: red; display: none;">Your password length needs to be at least
-                        8 & contains at least 1 uppercase character & number!</p>
-                    <p style=" color: red; display: none;" id="email_error">Email Exist!</p>
-                    <p style=" color: red; display: none;" id="phone_error">Mobile Number Exist!</p>
-                </div>
                 <!-- End -->
-                <div class="col-12">
+                <div class="col-12 col-12 d-flex justify-content-end">
                     <input type="submit" name="MM_insert" value="Register Now">
                 </div>
             </form>
