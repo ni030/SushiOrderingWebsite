@@ -55,7 +55,7 @@ if ((isset($_POST["MM_select"])) && $_POST["MM_select"] == "Login") {
                 $_SESSION["id"] = $row["guid"];
                 $_SESSION["name"] = $row["firstName"];
                 // echo "login success".$_SESSION["name"];
-                header("location: ../frontend/index.php");
+                header("location: ../frontend/login.php?login=success");
             } else {
                 header("Location: ../frontend/login.php?signup=pass");
                 exit();
