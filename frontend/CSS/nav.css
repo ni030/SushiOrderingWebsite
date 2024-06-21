@@ -168,7 +168,7 @@ html, body {
 }
 
 @media(max-width: 400px){
-    .sidebar{
+    .sideBar{
         width:100%;
     }
 }

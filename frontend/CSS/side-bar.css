@@ -34,3 +34,21 @@
 .sidebar-menu li {
     margin-bottom: 10px; /* Space between items */
 }
+
+@media(max-width: 850px){
+    .sidebar{
+        width:150px;
+    }
+}
+@media(max-width: 450px){
+    .sidebar{
+        width:100px;
+    }
+}
+@media(max-height: 450px){
+    .sidebar a{
+        padding:5px;
+    }
+}
+
+

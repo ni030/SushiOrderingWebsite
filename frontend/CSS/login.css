@@ -14,6 +14,9 @@
 
 body {
     margin: 0;
+    background-image: url('../img/register_back.avif');
+    background-size: cover;
+    background-position: center;
 }
 
 html, body {
@@ -22,11 +25,8 @@ html, body {
 }
 
 .content {
-    padding-top: 150px;
+    padding-top: 220px;
     text-align: center;
-    background-image: url('../img/register_back.avif');
-    background-size: cover;
-    background-position: center;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -34,9 +34,11 @@ html, body {
 }
 
 h2 {
-    font-size: 24px;
+    font-size: 30px;
+    font-weight: bold;
     margin-bottom: 30px;
-    color: #f4e7d4;
+    color: #541616;
+    /* text-align: center; */
 }
 
 .login{
@@ -56,6 +58,15 @@ form {
     width: 300px;
     margin: 0 auto;
     text-align: left;
+}
+
+.input-error{
+    border:1px solid red;
+}
+
+.input-error:focus {
+    border-color: red !important;
+    box-shadow: none;
 }
 
 #login-form .col-12 {
@@ -95,4 +106,25 @@ form {
 .signup-link a:hover {
     color: #0056b3;
     text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    /* .form-container {
+        padding: 15px;
+        width: 90%;
+    } */
+
+    h2 {
+        font-size: 20px;
+    }
+
+    #login-form input[type="submit"] {
+        width: 100%;
+    }
+}
+
+@media (max-height:600px){
+    .content {
+        padding-top: 80px;
+    }
 }

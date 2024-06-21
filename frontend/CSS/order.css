@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=SoDoSans:wght@400&display=swap');
+
+body {
+    font-family: 'SoDoSans', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    background-image: url('../img/profile_back.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.navbar {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.login {
+    padding-top: 13px;
+}
+
+.content {
+    display: flex;
+    flex-wrap: nowrap;
+    height: 100vh;
+}
+
+#historySection {
+    margin-top: 70px;
+    margin-left: 250px;
+    background:rgba(245, 245, 245, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    width: 100%;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+}
+
+h1 {
+    font-size: 36px;
+    color: #835a5a;
+    margin-bottom: 20px;
+    font-weight:bold;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.btn.btn-secondary.dropdown-toggle{
+    background-color: #8c5a52;
+    color: #f4e7d4;
+}
+
+.dropdown-menu {
+    width:200px;
+    background: rgba(245, 245, 245, 0.9);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu li {
+    list-style: none;
+    margin: 5px 0;
+}
+
+.dropdown-menu label {
+    margin-left: 10px;
+    color: #541616;
+}
+
+#applySort {
+    display: block;
+    width: 100%;
+    background-color: #8c5a52;
+    color: #f4e7d4;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#applySort:hover {
+    background-color: #835a5a;
+}
+
+.order {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.order-details {
+    flex: 1;
+    text-align: left;
+    font-size: 16px;
+    color:#541616;
+}
+
+.order-item p {
+    margin: 2px 0; /* Reduce spacing between items */
+}
+
+.order-time, .order-address {
+    color: rgba(84, 22, 22, 0.7); /* More transparent text color */
+    font-size: 12px; /* Smaller font size */
+}
+
+.order-amount {
+    font-size: 24px;
+    font-weight: bold;
+    color: #541616;
+    margin-left: 20px;
+}
+
+@media (max-width: 850px) {
+    .content {
+        flex-direction: column;
+    }
+
+    #historySection {
+        margin-left: 150px;
+    }
+
+    .order {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .order-amount {
+        margin-left: 0;
+        margin-top: 10px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 450px) {
+    #historySection{
+        margin-left: 100px;
+    }
+}

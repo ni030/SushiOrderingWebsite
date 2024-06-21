@@ -33,16 +33,12 @@ html, body {
     align-items: center;
 }
 
-h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
-    color: #f4e7d4;
-}
-
 h2 {
-    font-size: 24px;
+    font-size: 30px;
+    font-weight: bold;
     margin-bottom: 30px;
-    color: #f4e7d4;
+    color: #541616;
+    text-align:center;
 }
 
 .form-container {
@@ -50,6 +46,14 @@ h2 {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #541616;
+    text-align:center;
 }
 
 form {
@@ -71,6 +75,14 @@ form .error_message{
     display: none;
 }
 
+.input-error{
+    border:1px solid red;
+}
+
+.input-error:focus {
+    border-color: red;
+    box-shadow: none;
+}
 
 #register-form .col-12 {
     display: flex;
@@ -98,4 +110,27 @@ form .error_message{
 
 #register-form input[type="password"] .form-control{
     padding-right: 40px; 
+}
+
+@media (max-width: 576px) {
+    .content {
+        padding-top: 100px;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    .form-container {
+        padding: 15px;
+    }
+
+    #register-form .col-12 {
+        justify-content: center; /* Center align the submit button on small screens */
+    }
+
+    #register-form input[type="submit"] {
+        width: 100%; /* Full width button on small screens */
+        margin-top: 10px;
+    }
 }
