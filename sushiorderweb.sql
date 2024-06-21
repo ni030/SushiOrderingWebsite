@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2024 at 04:52 PM
+-- Generation Time: Jun 21, 2024 at 05:06 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -55,9 +55,9 @@ INSERT INTO `address` (`addressID`, `addressName`, `unit`, `address`, `city`, `s
 --
 
 CREATE TABLE `cart` (
-  `cartID` varchar(40) NOT NULL,
-  `meals` varchar(100) NOT NULL,
-  `quantity` varchar(100) NOT NULL,
+  `cartID` varchar(40) NOT NULL DEFAULT uuid(),
+  `meals` varchar(200) DEFAULT NULL,
+  `quantity` varchar(200) DEFAULT NULL,
   `userID` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -66,7 +66,9 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`cartID`, `meals`, `quantity`, `userID`) VALUES
-('e2d8a18e-5be0-4472-93f2-8fa107ec4185', '', '', 'c0c72494-23e6-11ef-be07-9c2f9d6cb57a');
+('64979c7b-2fdd-11ef-8cf4-00ff93bfad24', NULL, NULL, '6490c464-2fdd-11ef-8cf4-00ff93bfad24'),
+('bee6df7c-2fdc-11ef-8cf4-00ff93bfad24', NULL, NULL, 'bee24a66-2fdc-11ef-8cf4-00ff93bfad24'),
+('f5a49c7d-044c-4df3-9889-9b94f2a064d5', NULL, NULL, 'c0c72494-23e6-11ef-be07-9c2f9d6cb57a');
 
 -- --------------------------------------------------------
 
@@ -146,7 +148,10 @@ INSERT INTO `orders` (`orderID`, `ordertime`, `orderItems`, `orderQuantity`, `to
 ('0f64ee7f-2d81-11ef-b22b-00ff93bfad24', '2024-06-18 16:42:57.000000', 'M028,M031', ' 2,6', 40.80, 'c0c72494-23e6-11ef-be07-9c2f9d6cb57a', '905e8697-2d6c-11ef-b22b-00ff93bfad24'),
 ('21e9b865-2d7e-11ef-b22b-00ff93bfad24', '2024-06-18 16:21:59.000000', 'M033,M019', '5, 2', 26.10, 'c0c72494-23e6-11ef-be07-9c2f9d6cb57a', '905e8697-2d6c-11ef-b22b-00ff93bfad24'),
 ('37215908-2d7a-11ef-b22b-00ff93bfad24', '2024-06-18 15:53:57.000000', 'M031,M003', '5, 2', 18.48, 'c0c72494-23e6-11ef-be07-9c2f9d6cb57a', 'e0e8c960-255e-11ef-b8b2-00ff93bfad24'),
-('cf7aebf6-2d80-11ef-b22b-00ff93bfad24', '2024-06-18 16:41:09.000000', 'M030', '5', 14.95, 'c0c72494-23e6-11ef-be07-9c2f9d6cb57a', 'e0e8c960-255e-11ef-b8b2-00ff93bfad24');
+('b3fcd080-2e14-11ef-9a14-00ff93bfad24', '2024-06-19 10:19:51.000000', 'M032', ' 5', 11.00, 'c0c72494-23e6-11ef-be07-9c2f9d6cb57a', '905e8697-2d6c-11ef-b22b-00ff93bfad24'),
+('cf7aebf6-2d80-11ef-b22b-00ff93bfad24', '2024-06-18 16:41:09.000000', 'M030', '5', 14.95, 'c0c72494-23e6-11ef-be07-9c2f9d6cb57a', 'e0e8c960-255e-11ef-b8b2-00ff93bfad24'),
+('dc78657c-2d82-11ef-b22b-00ff93bfad24', '2024-06-18 16:55:36.000000', 'M031', '2', 5.00, 'c0c72494-23e6-11ef-be07-9c2f9d6cb57a', '905e8697-2d6c-11ef-b22b-00ff93bfad24'),
+('f0f1dda1-2d82-11ef-b22b-00ff93bfad24', '2024-06-18 16:56:24.000000', 'M033', '5', 12.50, 'c0c72494-23e6-11ef-be07-9c2f9d6cb57a', 'e0e8c960-255e-11ef-b8b2-00ff93bfad24');
 
 -- --------------------------------------------------------
 
@@ -182,6 +187,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`guid`, `firstName`, `lastName`, `mobileNum`, `email`, `password`, `birthday`) VALUES
+('6490c464-2fdd-11ef-8cf4-00ff93bfad24', 'ad', 'ad', 8888, 'ad@gmail.com', 'EC8=', '2024-06-23 00:00:00.000000'),
+('bee24a66-2fdc-11ef-8cf4-00ff93bfad24', 'df', 'dsf', 999, 'sdfds@gmail.com', 'EC8=', '2024-07-05 00:00:00.000000'),
 ('c0c72494-23e6-11ef-be07-9c2f9d6cb57a', 'loh', 'nini', 1212, 'WW@gmail.com', 'EC8=', '2012-12-12 00:00:00.000000');
 
 --
