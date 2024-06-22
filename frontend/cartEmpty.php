@@ -28,11 +28,11 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === false) {
 
     <style>
         body {
-            background-image: url('../frontend/img/cartBackground.png'); /* Path to your background image */
-            background-size: cover; /* This ensures the image covers the entire page */
-            background-repeat: no-repeat; /* Prevents the image from repeating */
-            background-attachment: fixed; /* Keeps the background image fixed during scrolling */
-            background-position: center; /* Centers the background image */
+            background-image: url('../frontend/img/cartBackground.png'); 
+            background-size: cover; 
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center; 
         }
 
         .emptyheading{
