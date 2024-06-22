@@ -1,6 +1,9 @@
 <?php
 require_once ("connection.php");
 session_start();
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === false) {
+    header("Location: ../frontend/login.php");
+}
 
 $uid = $_SESSION["id"];
 $sql = "SELECT * FROM cart WHERE userID = '$uid'";
