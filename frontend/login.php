@@ -31,27 +31,29 @@ require_once("../backend/connection.php");
     include("nav.php");
     ?>
     <div class="content">
-        <div class="form-container">
-            <form id="login-form" method="POST" action="../backend/loginUser.php">
-                <div class="col-12">
-                    <h2>Log in</h2>
-                </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" name="email" placeholder="name@example.com" required>
-                    <p id="email_error" style="color: red; display: none;">Email is not existed!</p>
-                </div>
+        <div class="login-section">
+            <div class="form-container">
+                <form id="login-form" method="POST" action="../backend/loginUser.php">
+                    <div class="col-12">
+                        <h2>Log in</h2>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1" name="email" placeholder="name@example.com" required>
+                        <p id="email_error" style="color: red; display: none;">Email is not existed!</p>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="inputPassword5" class="form-label">Password</label>
-                    <input type="password" id="inputPassword5" class="form-control" name="password" required>
-                    <p id="pass_error" style="color: red; display: none;">Invalid password!</p>
-                </div>
-                <div class="col-12">
-                    <input type="submit" name="MM_select" value="Login">
-                </div>
-            </form>
-            <p class="signup-link">Don't have an account? <a href="register.php">Sign up now!</a></p>
+                    <div class="mb-3">
+                        <label for="inputPassword5" class="form-label">Password</label>
+                        <input type="password" id="inputPassword5" class="form-control" name="password" required>
+                        <p id="pass_error" style="color: red; display: none;">Invalid password!</p>
+                    </div>
+                    <div class="col-12">
+                        <input type="submit" name="MM_select" value="Login">
+                    </div>
+                </form>
+                <p class="signup-link">Don't have an account? <a href="register.php">Sign up now!</a></p>
+            </div>
         </div>
     </div>
     <script src="JS/nav.js"></script>

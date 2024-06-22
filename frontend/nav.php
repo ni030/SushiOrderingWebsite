@@ -1,6 +1,4 @@
-<?php session_start();?>
-
-<nav class="navbar">
+<div class="navbar">
     <div class="navbar-left">
         <div class="navbar-brand">
             <a href="../frontend/index.php" class="navbar-logo">
@@ -19,10 +17,10 @@
             <li><a href="../frontend/promotion.php" clas="promo-link">Promotion</a></li>
             <li><a href="../backend/viewCart.php" class="cart-link">Cart</a></li>
             <?php
-            if ($_SESSION["loggedin"] === TRUE) { ?>
-            <li><a href="../frontend/userAccount.php">Profile Page</a></li>
-            <?php } else { ?>
+            if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === false) { ?>
             <li><a href="../frontend/login.php">Login</a></li>
+            <?php } else { ?>
+            <li><a href="../frontend/userAccount.php">Profile Page</a></li>
             <?php } ?>
         </ul>
         <ul class="navbar-menu">
@@ -42,7 +40,7 @@
             if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === false) {
                 echo "<a href=\"login.php\">Login</a>";
             } else {
-                echo "<a href=\"userAccount.php\">Hi, ".$_SESSION["name"]."</a>";
+                echo "<a href=\"userAccount.php\">Hi, " . $_SESSION["name"] . "</a>";
             }
             ?>
         </span>
@@ -53,4 +51,4 @@
             </a>
         </div>
     </div>
-</nav>
+</div>
