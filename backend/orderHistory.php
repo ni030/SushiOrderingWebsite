@@ -3,8 +3,7 @@
 
     session_start();
     $uid = $_SESSION["id"];
-
-    $sql = "SELECT * from orders WHERE orderUser = '$uid'";
+    $sql = "SELECT * from orders WHERE orderUser = '$uid' ORDER BY ordertime DESC";
     $result = mysqli_query($conn, $sql);
     
 
