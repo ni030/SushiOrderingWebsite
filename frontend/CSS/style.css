@@ -75,11 +75,13 @@ section:nth-child(even){
 .home .home-slider .slide .content span{
     color: #8c5a52;
     font-size: 2.5rem;
+    font-weight: bold;
 }
 .home .home-slider .slide .content h3{
     color: #541616;
     padding-top: 20px;
     font-size: 42px;
+    font-weight: bold;
 }
 .home .home-slider .slide .content p{
     color: #835a5a;
