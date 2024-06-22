@@ -101,7 +101,7 @@ $result = mysqli_query($conn, $sql);
                         <span class="discounted-price">RM <?php echo $row["price"]; ?></span>
                         <span class="original-price">RM 5.50</span>
                     </div>
-                    <a href="../backend/mealDetail.php?meal=<?php echo $row['mealID']; ?>" class="btn">Add to cart</a>
+                    <a href="../frontend/mealDetail.php?meal=<?php echo $row['mealID']; ?>" class="btn">Add to cart</a>
                 </div>
             </div>
             <?php

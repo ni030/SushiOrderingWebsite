@@ -73,7 +73,7 @@ $result2 = mysqli_query($conn, $sql2);
                             </div>
                             <h3><?php echo $row["mealName"] ?></h3>
                             <p><?php echo $row["description"] ?></p>
-                            <a href="../backend/mealDetail.php?meal=<?php echo $row['mealID'] ?>" class="btn">Add to cart</a>
+                            <a href="../frontend/mealDetail.php?meal=<?php echo $row['mealID'] ?>" class="btn">Add to cart</a>
                             <span class="price">RM <?php echo $row["price"] ?></span>
                         </div>
                     </div>
@@ -104,7 +104,7 @@ $result2 = mysqli_query($conn, $sql2);
                             </div>
                             <h3><?php echo $row["mealName"] ?></h3>
                             <p><?php echo $row["description"] ?></p>
-                            <a href="../backend/mealDetail.php?meal=<?php echo $row['mealID'] ?>" class="btn">Add to cart</a>
+                            <a href="../frontend/mealDetail.php?meal=<?php echo $row['mealID'] ?>" class="btn">Add to cart</a>
                             <span class="price">RM <?php echo $row["price"] ?></span>
                         </div>
                     </div>
@@ -135,7 +135,7 @@ $result2 = mysqli_query($conn, $sql2);
                             </div>
                             <h3><?php echo $row["mealName"] ?></h3>
                             <p><?php echo $row["description"] ?></p>
-                            <a href="../backend/mealDetail.php?meal=<?php echo $row['mealID'] ?>" class="btn">Add to cart</a>
+                            <a href="../frontend/mealDetail.php?meal=<?php echo $row['mealID'] ?>" class="btn">Add to cart</a>
                             <span class="price">RM <?php echo $row["price"] ?></span>
                         </div>
                     </div>
