@@ -25,13 +25,34 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === false) {
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-image: url('../frontend/img/cartBackground.png'); /* Path to your background image */
+            background-size: cover; /* This ensures the image covers the entire page */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            background-attachment: fixed; /* Keeps the background image fixed during scrolling */
+            background-position: center; /* Centers the background image */
+        }
+
+        .emptyheading{
+            padding-top: 26rem;
+            text-align: center;
+            color:var(--red);
+            font-size: 2.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+}
+        }
+    </style>
+
 </head>
 
 <body>
     <!--nav bar-->
     <?php include("../frontend/nav.php"); ?>
 
-    <h3 class="heading">Opps .. Your cart is empty!</h3>
+    <h3 class="emptyheading">Opssy .. Your cart is empty!</h3>
 
     <div class="total-checkout">
             <h2>Total Payment : RM 0</h2>
