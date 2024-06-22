@@ -26,7 +26,7 @@ body {
     min-height:100vh;
 }
 
-.form-container{
+#addSection{
     margin-top: 70px;
     margin-left: 250px;
     background: rgba(245, 245, 245, 0.5);
@@ -38,16 +38,7 @@ body {
     width: calc(100% - 250px);
 }
 
-.input-error{
-    border:1px solid red;
-}
-
-.input-error:focus {
-    border-color: red;
-    box-shadow: none;
-}
-
-#change-form{
+#addForm{
     width:55%;
 }
 
@@ -79,7 +70,7 @@ h1{
 }
 
 @media (max-width: 1000px) {
-    #change-form{
+    #addForm{
         width:100%;
         padding:10px;
     }
@@ -90,14 +81,14 @@ h1{
     }
 }
 @media (max-width: 850px) {
-    .form-container, .site-footer{
+    #addSection, .site-footer{
         margin-left: 150px;
         padding:20px;
         width: calc(100% - 150px);
     }
 }
 @media (max-width: 450px) {
-    .form-container, .site-footer{
+    #addSection, .site-footer{
         margin-left: 100px;
         padding:20px;
         width: calc(100% - 100px);

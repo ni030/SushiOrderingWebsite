@@ -8,7 +8,6 @@ body {
     overflow-x: hidden;
     background-image: url('../img/profile_back.jpg');
     background-size: cover;
-    background-attachment: fixed;
     background-position: center;
 }
 
@@ -24,7 +23,7 @@ body {
 .content {
     display: flex;
     flex-wrap: wrap;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 #userProfile {
@@ -35,7 +34,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     flex: 1;
-    width: 100%;
+    width: calc(100% - 250px);
 }
 
 #userForm{
@@ -64,6 +63,11 @@ h1 {
     background-color: #835a5a;
 }
 
+.site-footer{
+    margin-left: 250px;
+    width: calc(100% - 250px);
+}
+
 @media (max-width: 1000px) {
     #userForm{
         width:100%;
@@ -72,10 +76,20 @@ h1 {
 @media (max-width: 850px) {
     #userProfile{
         margin-left: 150px;
+        width: calc(100% - 150px);
+    }
+    .site-footer{
+        margin-left:150px;
+        width: calc(100% - 150px);
     }
 }
 @media (max-width: 450px) {
     #userProfile{
         margin-left: 100px;
+        width: calc(100% - 100px);
+    }
+    .site-footer{
+        margin-left:100px;
+        width: calc(100% - 100px);
     }
 }

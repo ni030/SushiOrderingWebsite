@@ -6,7 +6,7 @@ body {
     min-height: 100vh;
     width: 100%;
     overflow-x: hidden;
-    background-image:url('../img/profile_back.jpg');
+    background-image: url('../img/profile_back.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -20,13 +20,13 @@ body {
     padding-top: 13px;
 }
 
-.content{
-    container: flex;
+.content {
+    display: flex;
     flex-wrap: wrap;
-    min-height:100vh;
+    min-height: 100vh;
 }
 
-.form-container{
+#editSection {
     margin-top: 70px;
     margin-left: 250px;
     background: rgba(245, 245, 245, 0.5);
@@ -34,25 +34,15 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     flex: 1;
-    width: 100%;
     width: calc(100% - 250px);
 }
 
-.input-error{
-    border:1px solid red;
-}
-
-.input-error:focus {
-    border-color: red;
-    box-shadow: none;
-}
-
-#change-form{
+#editForm{
     width:55%;
 }
 
-h1{
-    font-size:36px;
+h1 {
+    font-size: 36px;
     color: #835a5a;
     margin-bottom: 20px;
     font-weight:bold;
@@ -60,17 +50,17 @@ h1{
 
 .col-12 input[type="submit"] {
     margin-top: 20px;
-    background-color: #8c5a52; /* Button background color */
-    color: #f4e7d4; /* Button text color */
-    padding: 10px 20px; /* Button padding */
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Optional: rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    background-color: #8c5a52;
+    color: #f4e7d4;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .col-12 input[type="submit"]:hover {
-    background-color: #835a5a; /* Button background color on hover */
+    background-color: #835a5a;
 }
 
 .site-footer{
@@ -78,29 +68,32 @@ h1{
     width: calc(100% - 250px);
 }
 
+#save{
+    margin-right:25px;
+}
+
 @media (max-width: 1000px) {
-    #change-form{
+    #editForm{
         width:100%;
-        padding:10px;
-    }
-    h1{
-        padding:10px;
-        font-size: 30px;
-        margin-bottom: 10px;
     }
 }
 @media (max-width: 850px) {
-    .form-container, .site-footer{
+    #editSection{
         margin-left: 150px;
-        padding:20px;
+        width: calc(100% - 150px);
+    }
+    .site-footer{
+        margin-left:150px;
         width: calc(100% - 150px);
     }
 }
 @media (max-width: 450px) {
-    .form-container, .site-footer{
+    #editSection{
         margin-left: 100px;
-        padding:20px;
+        width: calc(100% - 100px);
+    }
+    .site-footer{
+        margin-left:100px;
         width: calc(100% - 100px);
     }
 }
-

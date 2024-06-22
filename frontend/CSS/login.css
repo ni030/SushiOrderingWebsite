@@ -25,12 +25,8 @@ html, body {
 }
 
 .content {
-    padding-top: 220px;
     text-align: center;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 h2 {
@@ -43,6 +39,15 @@ h2 {
 
 .login{
     padding-top:13px;
+}
+
+.login-section{
+    height:calc(100vh + 70px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .form-container {
@@ -109,11 +114,6 @@ form {
 }
 
 @media (max-width: 600px) {
-    /* .form-container {
-        padding: 15px;
-        width: 90%;
-    } */
-
     h2 {
         font-size: 20px;
     }
@@ -122,9 +122,12 @@ form {
         width: 100%;
     }
 }
-
-@media (max-height:600px){
-    .content {
-        padding-top: 80px;
+@media (max-height: 500px) {
+    body{
+        height:100%;
+    }
+    .login-section{
+        margin-top: 80px;
+        height:100%;
     }
 }
