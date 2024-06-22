@@ -56,6 +56,7 @@ $result = mysqli_query($conn, $sql);
         padding-top: 8rem;
         padding-bottom: 3rem;
         text-transform: uppercase;
+        font-weight: bold;
     }
 
     .box .content h3 {
