@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 21, 2024 at 05:06 PM
+-- Generation Time: Jun 22, 2024 at 11:10 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -68,7 +68,7 @@ CREATE TABLE `cart` (
 INSERT INTO `cart` (`cartID`, `meals`, `quantity`, `userID`) VALUES
 ('64979c7b-2fdd-11ef-8cf4-00ff93bfad24', NULL, NULL, '6490c464-2fdd-11ef-8cf4-00ff93bfad24'),
 ('bee6df7c-2fdc-11ef-8cf4-00ff93bfad24', NULL, NULL, 'bee24a66-2fdc-11ef-8cf4-00ff93bfad24'),
-('f5a49c7d-044c-4df3-9889-9b94f2a064d5', NULL, NULL, 'c0c72494-23e6-11ef-be07-9c2f9d6cb57a');
+('f5a49c7d-044c-4df3-9889-9b94f2a064d5', 'M030', '1', 'c0c72494-23e6-11ef-be07-9c2f9d6cb57a');
 
 -- --------------------------------------------------------
 
