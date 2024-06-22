@@ -30,7 +30,8 @@ section:nth-child(even){
 
 
 .btn:hover{
-    background: var(--red);
+    color: rgb(155, 128, 128);
+    background: #541616;
     letter-spacing: .1rem;
 }
 
@@ -108,6 +109,7 @@ section:nth-child(even){
     font-size: 4rem;
     padding-bottom: 3rem;
     text-transform: uppercase;
+    font-weight: bold;
 }
 
 
@@ -239,19 +241,19 @@ section:nth-child(even){
 }
 
 .menu .box-container .box .content .btn {
-    margin-top: 1rem;
+    margin-top: 0.3rem;
     display: inline-block;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     font-weight: bold;
     color: #541616;
     background: var(--rice);
     border-radius: .5rem;
     cursor: pointer;
-    padding: .8rem 2rem;
+    padding: .6rem 2rem;
 }
 
-.menu .box-container .box .content .btn:hover {
-    background: var(#beb2a1);
+.menu .box-container .box .content .btn :hover {
+    background: var(#514a40);
     letter-spacing: .1rem;
 }
 
@@ -308,11 +310,6 @@ section:nth-child(even){
     background-color: #5b3636;
     letter-spacing: .1rem;
 }
-
-
-
-
-
 
 
 @media (max-width:991px){

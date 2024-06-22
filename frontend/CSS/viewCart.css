@@ -20,11 +20,11 @@ html{
     scroll-behavior: smooth;
 }
 
-h3 {
+.heading {
     padding-top: 2rem;
     text-align: center;
     color:var(--red);
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -32,50 +32,64 @@ h3 {
 
 /* type of address*/
 .chooseaddress {
-    margin-top: 5rem;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    border-radius: 6px;
+    padding-top: 5rem;
+    font-size: 16px; /* Adjust the font size as needed */
+    padding-bottom: 3rem;
 }
+
 
 select {
-    padding: 10px;
-    border: 1px solid #b22222; 
+    font-size: 18px;
+    padding: 8px;
+    border: 1px solid #883232; 
     border-radius: 5px;
     background-color: #fff0f0; 
-    color: #b22222; 
+    color: #883232; 
 }
 
-
-/* table*/
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
+    width: 85%;
+    margin: 20px auto; /* Center the table with margin */
+    margin-top: 1.7rem; /* Adjust the top margin as needed */
+    padding-top: 20px; /* Add padding to the top of the table */
 }
 
 table, th, td {
-    border: 1px solid #b22222; 
+    border: 1px solid #823336;
 }
 
 th, td {
-    padding: 10px;
-    text-align: left;
+    padding: 10px 15px;
+    font-size: 1.6rem;
 }
 
 th {
-    background-color: #b22222; 
+    background-color: #883232;
     color: #fff;
 }
 
 td {
-    background-color: #fff0f0; 
+    background-color: #fff0f0;
+    margin-right: 2rem;
+}
+
+.quantity-number {
+    font-size: 1.6rem; 
+    margin: 0 18px; 
 }
 
 
 button {
-    padding: 5px 10px;
+    padding: 4px 8px;
     margin: 0 5px;
     border: 1px solid #b22222; 
-    border-radius: 5px;
-    background-color: #f08080; 
+    border-radius: 10px;
+    background-color: #c87777; 
     color: white;
     cursor: pointer;
 }
@@ -91,26 +105,37 @@ button:disabled {
 
 /* Total payment*/
 .total-checkout {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #823336; /* Optional: Set a background color */
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 -2px 4px rgba(0,0,0,.1); /* Optional: Add shadow for separation */
 }
 
 .total-checkout h2 {
     margin: 0 20px 0 0;
-    color: #b22222; 
+    color: #ffffff; 
+    font-size: 2rem; /* Adjust font size for total payment heading */
+    padding-right: 1.2rem;
 }
 
 input[type="submit"] {
+    margin-right: 2rem;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #b22222; 
-    color: white;
+    background-color: #ededed; 
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: rgb(70, 41, 41);
     cursor: pointer;
 }
 
 input[type="submit"]:hover {
-    background-color: #f08080; 
+    background-color: #b49092; 
 }
