@@ -10,6 +10,6 @@
         die("Update failed: " . mysqli_error($conn));
     } else {
         echo "Record updated successfully";
-        header("Location: viewCart.php");
+        header("Location: ../frontend/viewCart.php");
     }
 ?>
