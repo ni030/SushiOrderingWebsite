@@ -12,7 +12,8 @@ $result = mysqli_query($conn, $sql);
 $row = $result->fetch_assoc();
 
 if (empty($row['meals'])) {
-    exit("Cart not found.");
+    header("Location: ../frontend/cartEmpty.php");
+    exit();
 }
 
 $sqlAddress = "SELECT * FROM address WHERE userID = '$uid'";
