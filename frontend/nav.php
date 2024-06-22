@@ -1,3 +1,5 @@
+<?php session_start();?>
+
 <nav class="navbar">
     <div class="navbar-left">
         <div class="navbar-brand">
@@ -35,14 +37,15 @@
         </svg>
     </div>
     <div class="navbar-profile">
-        <ul class="login">
+        <span>
             <?php
-            if ($_SESSION["loggedin"] === TRUE) { ?>
-            <li><a href="../frontend/userAccount.php"><?php echo "Hi, " . $_SESSION["name"]; ?></a></li>
-            <?php } else { ?>
-            <li><a href="../frontend/login.php">Login</a></li>
-            <?php } ?>
-        </ul>
+            if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === false) {
+                echo "<a href=\"login.php\">Login</a>";
+            } else {
+                echo "<a href=\"userAccount.php\">Hi, ".$_SESSION["name"]."</a>";
+            }
+            ?>
+        </span>
 
         <div class="navCart">
             <a href="../backend/viewCart.php" class="cart-link">
