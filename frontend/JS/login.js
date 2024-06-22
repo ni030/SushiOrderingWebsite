@@ -15,7 +15,7 @@ if(fullUrl.includes("login.php?login=success")){
 
 if(fullUrl.includes("login.php?signup=email")){
     document.getElementById('email_error').style.display='block';
-    document.getElementById('inputEmail4').classList.add('input-error');
+    document.getElementById('exampleFormControlInput1').classList.add('input-error');
 }
 
 if(fullUrl.includes("login.php?signup=pass")){

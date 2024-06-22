@@ -1,50 +1,75 @@
 const curPage = window.location.href;
 
+document.getElementById('current_error').style.display='none';
+document.getElementById('tech_error').style.display='none';
+document.getElementById('matched_error').style.display='none';
+document.getElementById('password_error').style.display = 'none';
+
 if(curPage.includes("changePass.php?change=success")){
-    document.getElementById('tech_error').style.display='block';
     alert("Your password is changed suceessfully!")
     window.location.href="../frontend/userAccount.php";
 }
 if(curPage.includes("changePass.php?change=current")){
     document.getElementById('current_error').style.display='block';
-}
-else{
-    document.getElementById('current_error').style.display='none';
+    document.getElementsByName('currentPW')[0].classList.add('input-error');
 }
 if(curPage.includes("changePass.php?change=error")){
     document.getElementById('tech_error').style.display='block';
 }
-else{
-    document.getElementById('tech_error').style.display='none';
+
+const password = document.getElementsByName('newPW')[0]; // Get the first element with name 'password'
+const confirmPassword = document.getElementsByName('confirmedPW')[0]; // Get the first element with name 'confirmedPassword'
+let pass = 0;
+let match = 0;
+var correct=pass+match;
+
+function updateCorrect() {
+    correct = pass + match;
 }
 
-document.getElementById('change-form').addEventListener('submit', function(event) {
-    const password = document.getElementsByName('newPW')[0].value; // Get the value of the first element with name 'password'
-    const confirmPassword = document.getElementsByName('confirmedPW')[0].value; // Get the value of the first element with name 'confirmedPassword'
-    var lowerCaseLetters=/[a-z]/g;
-    var upperCaseLetters=/[A-Z]/g;
-    var numbers=/[0-9]/g;
-    console.log("parent is called");
-
-    if(!(password.length>=8 && password.match(lowerCaseLetters)&&password.match(upperCaseLetters)&&password.match(numbers))){
-        console.log("enter if condition");
-        event.preventDefault(); // Prevent form submission
-        document.getElementById('password_error').style.display = 'block';
-        document.getElementById('current_error').style.display='none';
-        document.getElementById('tech_error').style.display='none';
-        document.getElementById('matched_error').style.display='none';
-        document.getElementsByName('newPW')[0].value = ''; // Clear password field
-        document.getElementsByName('confirmedPW')[0].value = ''; // Clear confirm password field
-        return;
-    }
-
-    if (password !== confirmPassword) {
-        event.preventDefault(); // Prevent form submission
+function validate(){
+    const userConfirm = confirmPassword.value;
+    if (userConfirm !== password.value) {
         document.getElementById('matched_error').style.display = 'block';
+        password.classList.add('input-error');
+        confirmPassword.classList.add('input-error');
+        match = 0;
+    } else {
+        document.getElementById('matched_error').style.display = 'none';
+        password.classList.remove('input-error');
+        confirmPassword.classList.remove('input-error');
+        match = 1;
+    }
+    updateCorrect()
+}
+
+password.addEventListener('keyup', () => {
+    console.log("Function is called");
+    const userPassword = password.value;
+    const lowerCaseLetters = /[a-z]/g;
+    const upperCaseLetters = /[A-Z]/g;
+    const numbers = /[0-9]/g;
+    if (!(userPassword.length >= 8 && userPassword.match(lowerCaseLetters) && userPassword.match(upperCaseLetters) && userPassword.match(numbers))) {
+        document.getElementById('password_error').style.display = 'block';
+        password.classList.add('input-error');
+        confirmPassword.disabled=true;
+        pass = 0;
+    } else {
         document.getElementById('password_error').style.display = 'none';
-        document.getElementById('current_error').style.display='none';
-        document.getElementById('tech_error').style.display='none';
-        document.getElementsByName('newPW')[0].value = ''; // Clear password field
-        document.getElementsByName('confirmedPW')[0].value = ''; // Clear confirm password field
+        password.classList.remove('input-error');
+        confirmPassword.disabled=false;
+        pass = 1;
+        validate();
+    }
+    updateCorrect()
+});
+
+confirmPassword.addEventListener('keyup', () => {
+    validate();
+});
+
+document.getElementById('change-form').addEventListener('submit', function(event) {
+    if (correct !== 2) {
+        event.preventDefault();
     }
 });

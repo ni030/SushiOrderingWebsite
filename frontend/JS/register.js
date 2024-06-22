@@ -25,25 +25,7 @@ function updateCorrect() {
     correct = pass + match;
 }
 
-password.addEventListener('keyup', () => {
-    console.log("Function is called");
-    const userPassword = password.value;
-    const lowerCaseLetters = /[a-z]/g;
-    const upperCaseLetters = /[A-Z]/g;
-    const numbers = /[0-9]/g;
-    if (!(userPassword.length >= 8 && userPassword.match(lowerCaseLetters) && userPassword.match(upperCaseLetters) && userPassword.match(numbers))) {
-        document.getElementById('password_error').style.display = 'block';
-        password.classList.add('input-error');
-        pass = 0;
-    } else {
-        document.getElementById('password_error').style.display = 'none';
-        password.classList.remove('input-error');
-        pass = 1;
-    }
-    updateCorrect()
-});
-
-confirmPassword.addEventListener('keyup', () => {
+function validate(){
     const userConfirm = confirmPassword.value;
     if (userConfirm !== password.value) {
         document.getElementById('matched_error').style.display = 'block';
@@ -57,6 +39,31 @@ confirmPassword.addEventListener('keyup', () => {
         match = 1;
     }
     updateCorrect()
+}
+
+password.addEventListener('keyup', () => {
+    console.log("Function is called");
+    const userPassword = password.value;
+    const lowerCaseLetters = /[a-z]/g;
+    const upperCaseLetters = /[A-Z]/g;
+    const numbers = /[0-9]/g;
+    if (!(userPassword.length >= 8 && userPassword.match(lowerCaseLetters) && userPassword.match(upperCaseLetters) && userPassword.match(numbers))) {
+        document.getElementById('password_error').style.display = 'block';
+        password.classList.add('input-error');
+        confirmPassword.disabled=true;
+        pass = 0;
+    } else {
+        document.getElementById('password_error').style.display = 'none';
+        password.classList.remove('input-error');
+        confirmPassword.disabled=false;
+        pass = 1;
+        validate();
+    }
+    updateCorrect()
+});
+
+confirmPassword.addEventListener('keyup', () => {
+    validate();
 });
 
 document.getElementById('register-form').addEventListener('submit', function(event) {

@@ -8,7 +8,7 @@ if(url.includes("frontend/userAccount.php")){
 else if(url.includes("frontend/address.php")){
     document.getElementById('address-link').classList.add('active');
 }
-else if(url.includes("frontend/order.php")){
+else if(url.includes("frontend/orderHistory.php")){
     document.getElementById('order-link').classList.add('active');
 }
 else if(url.includes("frontend/changePass.php")){
