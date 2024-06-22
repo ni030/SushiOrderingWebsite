@@ -15,7 +15,6 @@ if (isset($_GET['category'])) {
         <div class="box" id="<?php echo $category; ?>">
             <div class="image">
                 <img src="img/<?php echo $row["mealPic"]; ?>" alt="">
-                <a href="#" class="fas fa-heart"></a>
             </div>
             <div class="content">
                 <div class="stars">
@@ -27,7 +26,7 @@ if (isset($_GET['category'])) {
                 </div>
                 <h3><?php echo $row["mealName"] ?></h3>
                 <p><?php echo $row["description"] ?></p>
-                <a href="../backend/mealDetail.php?meal=<?php echo $row['mealID']?>" class="btn">Add to cart</a>
+                <a href="../frontend/mealDetail.php?meal=<?php echo $row['mealID']?>" class="btn">Add to cart</a>
                 <span class="price">RM <?php echo $row["price"] ?></span>
             </div>
         </div>
