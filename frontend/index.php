@@ -1,12 +1,12 @@
 <?php
-    session_start();
+session_start();
 
-    require_once("../backend/connection.php");
-    $sql = "SELECT * FROM meal";
-    $result = mysqli_query($conn, $sql);
+require_once("../backend/connection.php");
+$sql = "SELECT * FROM meal";
+$result = mysqli_query($conn, $sql);
 
-    $sql2 = "SELECT * FROM meal WHERE category = 'Promotion'";
-    $result2 = mysqli_query($conn, $sql2);
+$sql2 = "SELECT * FROM meal WHERE category = 'Promotion'";
+$result2 = mysqli_query($conn, $sql2);
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +17,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width ,initial-scale=1.0">
     <title>Sushi Bliss Ordering Website</title>
+
+    <!--footer-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="../frontend/CSS/footer.css">
+    <script defer src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+    <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+    </script>
 
     <!--Swiper-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -42,46 +59,10 @@
 </head>
 
 <body>
-<!--nav bar-->
-<nav class="navbar">
-            <div class="navbar-left">
-                <div class="navbar-brand">
-                    <a href="#" class="navbar-logo">
-                        <img src="img/logo.PNG" alt="Logo">
-                    </a>
-                    <span class="shop-name">Sushi Bliss</span>
-                </div>
-                <ul class="navbar-menu">
-                    <li><a href="index.php" id="home-link">Home</a></li>
-                    <li><a href="menuPage.php" id="menu-link">Menu</a></li>
-                    <li><a href="promotion.php" id="promotion-link">Promotion</a></li>
-                </ul>
-            </div>
-            <div class="navbar-profile">
-                <a href="userAccount.php">
-                    <div>
-                        <?php
-                        if(!isset($_SESSION["loggedin"])) {
-                            echo "Login";
-                        }else{
-                            if ($_SESSION["loggedin"] === TRUE) {
-                                echo "HI, " . $_SESSION["name"];
-                            } else {
-                                echo "Login";
-                            }
-                        }
-                        
-                        ?>
-                    </div>
-                </a>
-
-                <div class="navCart">
-                    <a href="../backend/viewCart.php" id="cart-link">
-                        <i style="margin-right: 1%;" class="fa-solid fa-cart-shopping justify-content-end fa-xl"></i>
-                    </a>
-                </div>  
-            </div>
-        </nav>
+    <!--nav bar-->
+    <?php
+    include("nav.php");
+    ?>
 
     <!-- Home section -->
     <section class="home" id="home">
@@ -147,13 +128,12 @@
         <h3 class="heading"> Promotions</h3>
 
         <div class="box-container">
-            <?php 
-                while($row2 = $result2->fetch_assoc())
-                {
+            <?php
+            while ($row2 = $result2->fetch_assoc()) {
             ?>
             <div class="box">
-                <img src="img/<?php echo $row2["mealPic"];?>" alt="">
-                <p><?php echo $row2["mealName"]?></p>
+                <img src="img/<?php echo $row2["mealPic"]; ?>" alt="">
+                <p><?php echo $row2["mealName"] ?></p>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -162,17 +142,17 @@
                     <i class="fas fa-star"></i>
                 </div>
                 <div class="prices">
-                    <span class="discounted-price">RM <?php echo $row2["price"]?></span>
+                    <span class="discounted-price">RM <?php echo $row2["price"] ?></span>
                     <span class="original-price">RM 5.50</span>
                 </div>
-                <a href="../backend/mealDetail.php?meal=<?php echo $row2['mealID']?>" class="btn">add to cart</a>
+                <a href="../backend/mealDetail.php?meal=<?php echo $row2['mealID'] ?>" class="btn">add to cart</a>
             </div>
-            <?php 
-                }
+            <?php
+            }
             ?>
         </div>
 
-        </section>
+    </section>
 
     <!--menu-->
     <section class="menu" id="menu">
@@ -191,13 +171,12 @@
             <img src="img/leftArr.png" id="leftBtn">
 
             <div class="box-container" id="meal-container">
-            <?php 
-                while($row = $result->fetch_assoc())
-                {
-            ?>
+                <?php
+                while ($row = $result->fetch_assoc()) {
+                ?>
                 <div class="box" id="Sushi">
                     <div class="image">
-                        <img src="img/<?php echo $row["mealPic"];?>" alt="">
+                        <img src="img/<?php echo $row["mealPic"]; ?>" alt="">
                     </div>
                     <div class="content">
                         <div class="stars">
@@ -207,37 +186,42 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star-half-alt"></i>
                         </div>
-                        <h3><?php echo $row["mealName"]?></h3>
-                        <p><?php echo $row["description"]?></p>
-                        <a href="../backend/mealDetail.php?meal=<?php echo $row['mealID']?>" class="btn">Add to cart</a>
-                        <span class="price">RM <?php echo $row["price"]?></span>
+                        <h3><?php echo $row["mealName"] ?></h3>
+                        <p><?php echo $row["description"] ?></p>
+                        <a href="../backend/mealDetail.php?meal=<?php echo $row['mealID'] ?>" class="btn">Add to
+                            cart</a>
+                        <span class="price">RM <?php echo $row["price"] ?></span>
                     </div>
                 </div>
-                <?php 
-                    }
+                <?php
+                }
                 ?>
-               
+
             </div>
             <img src="img/rightArr.png" id="rightBtn">
         </div>
 
     </section>
+    <!--footer-->
+    <?php
+    include("footer.html");
+    ?>
     <script>
-            function chooseCategory(category) {
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                        document.getElementById("meal-container").innerHTML = xhr.responseText;
-                    } else {
-                        console.error('Error fetching meals:', xhr.status);
-                    }
+    function chooseCategory(category) {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    document.getElementById("meal-container").innerHTML = xhr.responseText;
+                } else {
+                    console.error('Error fetching meals:', xhr.status);
                 }
-            };
-        
+            }
+        };
+
         xhr.open('GET', '../backend/selectMenu.php?category=' + category, true);
         xhr.send();
-        }
+    }
     </script>
 
     <!--swiper js-->
