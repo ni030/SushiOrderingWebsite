@@ -66,7 +66,7 @@ $row = mysqli_fetch_assoc($result);
 <body>
     <!-- Notification Container -->
     <div id="notification" class="notification">
-        <i class="fas fa-check-circle"></i> <strong>Successfully added</strong>
+        <i class="fas fa-check-circle"></i> <strong>Added to Cart</strong>
     </div>
 
     <!--nav bar-->
