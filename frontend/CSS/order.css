@@ -134,6 +134,7 @@ h1 {
 @media (max-width: 850px) {
     .content {
         flex-direction: column;
+        min-width: fit-content;
     }
 
     #historySection {
@@ -143,6 +144,7 @@ h1 {
     .order {
         flex-direction: column;
         align-items: flex-start;
+        max-width: calc(100vw - 200px);
     }
 
     .order-amount {
