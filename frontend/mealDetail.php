@@ -130,7 +130,7 @@ $row = mysqli_fetch_assoc($result);
                     setTimeout(function() {
                         notification.style.display = 'none';
                         window.location.href = '../frontend/index.php';
-                    }, 3000);
+                    }, 2500);
                     
                 } else {
                     alert('An error occurred while adding to the cart. Please try again.');

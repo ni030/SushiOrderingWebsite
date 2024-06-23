@@ -1,5 +1,5 @@
 <?php
-require_once("../backend/connection.php");
+require_once ("../backend/connection.php");
 session_start();
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === false) {
     header("Location: ../frontend/login.php");
@@ -12,7 +12,7 @@ $result = mysqli_query($conn, $sql);
 $row = $result->fetch_assoc();
 
 if (empty($row['meals'])) {
-    header("Location: ../frontend/cartEmpty.php");
+    header("Location: cartEmpty.php");
     exit();
 }
 
@@ -44,19 +44,38 @@ $formattedDateTime = date("Y-m-d H:i:s", $timestamp);
                 return;
             }
 
-            quantityArray[mealInd] = newQuantity;
-            updateCart();
+            var newQuantityArray = [...quantityArray];
+            newQuantityArray[mealInd] = newQuantity;
+            console.log(newQuantityArray);
+
+            var newQuantityString = newQuantityArray.join(',');
+            console.log(newQuantityString);
+
+            window.location.href = "../backend/updateQuantity.php?newQ=" + newQuantityString;
         }
 
         function removeMeal(mealInd) {
-            mealArray.splice(mealInd, 1);
-            quantityArray.splice(mealInd, 1);
-            updateCart();
-        }
+            var newMealArray = [...mealArray];
+            var newQuantityArray = [...quantityArray];
 
-        function updateCart() {
-            var newMealString = mealArray.join(',');
-            var newQuantityString = quantityArray.join(',');
+            for (let x = mealInd; x < mealArray.length - 1; x++) {
+                newMealArray[x] = mealArray[x + 1];
+                newQuantityArray[x] = quantityArray[x + 1];
+            }
+
+            // Adjust array lengths
+            newMealArray.length = mealArray.length - 1;
+            newQuantityArray.length = quantityArray.length - 1;
+
+            console.log("New Meal Array:", newMealArray);
+            console.log("New Quantity Array:", newQuantityArray);
+
+            var newMealString = newMealArray.join(',');
+            var newQuantityString = newQuantityArray.join(',');
+
+            console.log("New Meal String:", newMealString);
+            console.log("New Quantity String:", newQuantityString);
+
             window.location.href = "../backend/updateCart.php?newM=" + newMealString + "&newQ=" + newQuantityString;
         }
     </script>
@@ -70,22 +89,23 @@ $formattedDateTime = date("Y-m-d H:i:s", $timestamp);
     <link rel="stylesheet" href="../frontend/CSS/viewCart.css">
 
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <style>
-        body{
-            background-image: url('../frontend/img/cartBackgroundTrans.png'); 
-            background-size: cover; 
+        body {
+            background-image: url('../frontend/img/cartBackgroundTrans.png');
+            background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
-            background-position: center; 
+            background-position: center;
         }
     </style>
 </head>
 
 <body>
     <!--nav bar-->
-    <?php include("../frontend/nav.php"); ?>
+    <?php include ("nav.php"); ?>
 
     <h3 class="heading">Cart</h3>
     <form method="POST" action="../backend/checkOut.php">
@@ -93,7 +113,8 @@ $formattedDateTime = date("Y-m-d H:i:s", $timestamp);
             <label for="address"> Choose an address: </label>
             <select name="address" id="address">
                 <?php while ($rowAdd = $resultAdd->fetch_assoc()) { ?>
-                    <option value="<?php echo $rowAdd["addressID"] ?>"><?php echo $rowAdd["addressName"] ?></option>
+                    <option value="<?php echo $rowAdd["unit"].", ".$rowAdd["address"]." ".$rowAdd["city"].", ".$rowAdd["postcode"].", ".$rowAdd["state"];?>">
+                        <?php echo $rowAdd["addressName"] ?></option>
                 <?php } ?>
             </select>
         </div>
@@ -117,19 +138,21 @@ $formattedDateTime = date("Y-m-d H:i:s", $timestamp);
                     $quantity = intval($quantityArray[$x]); // Convert quantity to integer
                     $subtotal = $price * $quantity;
                     $total += $subtotal;
-            ?>
+                    ?>
                     <tr>
                         <td><?php echo $row2["mealName"]; ?></td>
                         <td><?php echo $row2["price"]; ?></td>
                         <td>
-                            <button type="button" onclick="updateQuantity(<?php echo $x; ?>, <?php echo $quantity; ?>, 'dec')">-</button>
+                            <button type="button"
+                                onclick="updateQuantity(<?php echo $x; ?>, <?php echo $quantity; ?>, 'dec')">-</button>
                             <span id="quantity-<?php echo $x; ?>" class="quantity-number"><?php echo $quantity; ?></span>
-                            <button type="button" onclick="updateQuantity(<?php echo $x; ?>, <?php echo $quantity; ?>, 'inc')">+</button>
+                            <button type="button"
+                                onclick="updateQuantity(<?php echo $x; ?>, <?php echo $quantity; ?>, 'inc')">+</button>
                         </td>
                         <td>RM <span id="subtotal-<?php echo $x; ?>"><?php echo number_format($subtotal, 2); ?></span></td>
                         <td><button type="button" onclick="removeMeal(<?php echo $x; ?>)">Remove</button></td>
                     </tr>
-            <?php
+                    <?php
                 }
             }
             ?>

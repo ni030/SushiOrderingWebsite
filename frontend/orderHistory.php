@@ -95,14 +95,7 @@ while ($row = $result->fetch_assoc()) {
                                                         echo "<p>" . $rowM["mealName"] . " x " . $quantityArray[$x] . "</p>";
                                                     }
                                                     ?></div>
-                        <div class="order-address"><?php
-                                                        $curAddID = $row['addressID'];
-                                                        $sql2 = "SELECT * FROM address WHERE addressID = '$curAddID'";
-                                                        $result2 = mysqli_query($conn, $sql2);
-                                                        $row2 = $result2->fetch_assoc();
-                                                        echo $row2["addressName"] . " - ";
-                                                        echo $row2["unit"] . ", " . $row2["address"] . " " . $row2["city"] . ", " . $row2["postcode"] . ", " . $row2["state"];
-                                                        ?></div>
+                        <div class="order-address"><?php echo $row["address"]; ?></div>
                     </div>
                     <div class="order-column">
                         <div class="order-amount"><?php echo "RM " . $row['totalAmount']; ?></div>
