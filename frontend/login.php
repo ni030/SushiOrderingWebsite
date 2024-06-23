@@ -5,7 +5,6 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     header("Location: index.php");
 }
 
-
 require_once("../backend/connection.php");
 ?>
 <!DOCTYPE html>
@@ -29,12 +28,31 @@ require_once("../backend/connection.php");
     <link rel="stylesheet" href="CSS/footer.css">
     <link rel="stylesheet" href="CSS/login.css">
     <title>Login</title>
+    <style>
+        .notification {
+            display: none;
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #f4e7d4;
+            color: #ab4247;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
     <?php
     include("nav.php");
     ?>
+    <div class="notification" id="loginNotification">
+        Please login to continue !
+    </div>
     <div class="content">
         <div class="login-section">
             <div class="form-container">
@@ -64,6 +82,19 @@ require_once("../backend/connection.php");
             </div>
         </div>
     </div>
+    <script>
+        // Check if the URL contains the showNotification query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const showNotification = urlParams.get('showNotification');
+
+        if (showNotification === 'true') {
+            const notification = document.getElementById('loginNotification');
+            notification.style.display = 'block';
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000); // Hide the notification after 3 seconds
+        }
+    </script>
     <script src="JS/nav.js"></script>
     <script src="JS/login.js"></script>
     <?php
