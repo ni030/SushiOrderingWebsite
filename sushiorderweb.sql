@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 22, 2024 at 11:10 AM
+-- Generation Time: Jun 23, 2024 at 11:26 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -67,8 +67,9 @@ CREATE TABLE `cart` (
 
 INSERT INTO `cart` (`cartID`, `meals`, `quantity`, `userID`) VALUES
 ('64979c7b-2fdd-11ef-8cf4-00ff93bfad24', NULL, NULL, '6490c464-2fdd-11ef-8cf4-00ff93bfad24'),
+('b2f4b9bd-3131-11ef-8831-00ff93bfad24', 'M003', '1', 'b2ee54e8-3131-11ef-8831-00ff93bfad24'),
 ('bee6df7c-2fdc-11ef-8cf4-00ff93bfad24', NULL, NULL, 'bee24a66-2fdc-11ef-8cf4-00ff93bfad24'),
-('f5a49c7d-044c-4df3-9889-9b94f2a064d5', 'M030', '1', 'c0c72494-23e6-11ef-be07-9c2f9d6cb57a');
+('f5a49c7d-044c-4df3-9889-9b94f2a064d5', 'M002', '2', 'c0c72494-23e6-11ef-be07-9c2f9d6cb57a');
 
 -- --------------------------------------------------------
 
@@ -123,9 +124,9 @@ INSERT INTO `meal` (`mealID`, `mealName`, `mealPic`, `category`, `description`, 
 ('M031', 'Ikura', 'promo2.png', 'Promotion', '', 2.50),
 ('M032', 'Hamachi', 'promo3.png', 'Promotion', '', 2.20),
 ('M033', 'Futomaki', 'promo4.png', 'Promotion', '', 2.50),
-('M034', 'Family Feast Combo', 'home1.png', 'Combo', 'Ideal for gatherings and family meals where everyone can enjoy a taste of Japan together.', 59.90),
-('M035', 'Solo Savory Combo', 'home2.png', 'Combo', 'Tailored for sushi enthusiasts dining alone or with a companion', 29.90),
-('M036', 'Sashimi Sensation Combo', 'home3.png', 'Combo', 'Designed to delight sashimi aficionados with its artful presentation', 79.90);
+('M034', 'Family Feast Combo', 'home1.png', 'Combo', 'Ideal for gatherings and family meals', 59.90),
+('M035', 'Solo Savory Combo', 'home2.png', 'Combo', 'dining alone or with a companion', 29.90),
+('M036', 'Sashimi Sensation Combo', 'home3.png', 'Combo', 'delight sashimi aficionados with its artful presentation', 79.90);
 
 -- --------------------------------------------------------
 
@@ -140,21 +141,17 @@ CREATE TABLE `orders` (
   `orderQuantity` varchar(100) NOT NULL,
   `totalAmount` decimal(10,2) NOT NULL,
   `orderUser` varchar(40) NOT NULL,
-  `addressID` varchar(40) NOT NULL
+  `address` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`orderID`, `ordertime`, `orderItems`, `orderQuantity`, `totalAmount`, `orderUser`, `addressID`) VALUES
-('0f64ee7f-2d81-11ef-b22b-00ff93bfad24', '2024-06-18 16:42:57.000000', 'M028,M031', ' 2,6', 40.80, 'c0c72494-23e6-11ef-be07-9c2f9d6cb57a', '905e8697-2d6c-11ef-b22b-00ff93bfad24'),
-('21e9b865-2d7e-11ef-b22b-00ff93bfad24', '2024-06-18 16:21:59.000000', 'M033,M019', '5, 2', 26.10, 'c0c72494-23e6-11ef-be07-9c2f9d6cb57a', '905e8697-2d6c-11ef-b22b-00ff93bfad24'),
-('37215908-2d7a-11ef-b22b-00ff93bfad24', '2024-06-18 15:53:57.000000', 'M031,M003', '5, 2', 18.48, 'c0c72494-23e6-11ef-be07-9c2f9d6cb57a', 'e0e8c960-255e-11ef-b8b2-00ff93bfad24'),
-('b3fcd080-2e14-11ef-9a14-00ff93bfad24', '2024-06-19 10:19:51.000000', 'M032', ' 5', 11.00, 'c0c72494-23e6-11ef-be07-9c2f9d6cb57a', '905e8697-2d6c-11ef-b22b-00ff93bfad24'),
-('cf7aebf6-2d80-11ef-b22b-00ff93bfad24', '2024-06-18 16:41:09.000000', 'M030', '5', 14.95, 'c0c72494-23e6-11ef-be07-9c2f9d6cb57a', 'e0e8c960-255e-11ef-b8b2-00ff93bfad24'),
-('dc78657c-2d82-11ef-b22b-00ff93bfad24', '2024-06-18 16:55:36.000000', 'M031', '2', 5.00, 'c0c72494-23e6-11ef-be07-9c2f9d6cb57a', '905e8697-2d6c-11ef-b22b-00ff93bfad24'),
-('f0f1dda1-2d82-11ef-b22b-00ff93bfad24', '2024-06-18 16:56:24.000000', 'M033', '5', 12.50, 'c0c72494-23e6-11ef-be07-9c2f9d6cb57a', 'e0e8c960-255e-11ef-b8b2-00ff93bfad24');
+INSERT INTO `orders` (`orderID`, `ordertime`, `orderItems`, `orderQuantity`, `totalAmount`, `orderUser`, `address`) VALUES
+('9623dc3a-3141-11ef-8831-00ff93bfad24', '2024-06-23 11:18:41.000000', 'M032,M030,M026,M033', '3,3,2,5', 42.05, 'b2ee54e8-3131-11ef-8831-00ff93bfad24', ''),
+('cb3d814a-3140-11ef-8831-00ff93bfad24', '2024-06-23 11:12:49.000000', 'M033,M030,M034', '2,5,2', 139.75, 'b2ee54e8-3131-11ef-8831-00ff93bfad24', '23, Gg. Basudewo No. 344 Sabang, 31271, Sumatera Utara'),
+('e6bfa5c3-3140-11ef-8831-00ff93bfad24', '2024-06-23 11:13:46.000000', 'M030,M004,M015', '3,3,2', 32.57, 'b2ee54e8-3131-11ef-8831-00ff93bfad24', '23, Gg. Basudewo No. 344 Sabang, 31271, Sumatera Utara');
 
 -- --------------------------------------------------------
 
@@ -191,6 +188,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`guid`, `firstName`, `lastName`, `mobileNum`, `email`, `password`, `birthday`) VALUES
 ('6490c464-2fdd-11ef-8cf4-00ff93bfad24', 'ad', 'ad', 8888, 'ad@gmail.com', 'EC8=', '2024-06-23 00:00:00.000000'),
+('b2ee54e8-3131-11ef-8831-00ff93bfad24', 'dd', 'dd', 12121212, 'dd@gmail.com', 'Y3+T4BPv3yg=', '2024-06-26 00:00:00.000000'),
 ('bee24a66-2fdc-11ef-8cf4-00ff93bfad24', 'df', 'dsf', 999, 'sdfds@gmail.com', 'EC8=', '2024-07-05 00:00:00.000000'),
 ('c0c72494-23e6-11ef-be07-9c2f9d6cb57a', 'loh', 'nini', 1212, 'WW@gmail.com', 'EC8=', '2012-12-12 00:00:00.000000');
 
