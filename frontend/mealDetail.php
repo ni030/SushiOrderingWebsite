@@ -3,7 +3,7 @@ require_once ("../backend/connection.php");
 session_start();
 
 if (!isset($_SESSION["id"])) {
-    header("Location: ../frontend/login.php");
+    header("Location: ../frontend/login.php?showNotification=true");
     exit();
 }
 
@@ -40,20 +40,21 @@ $row = mysqli_fetch_assoc($result);
     <!-- Notification CSS -->
     <style>
         .notification {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: #56282c; 
-        color: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-        z-index: 1000;
-        text-align: center;
-        font-size: 2em; 
-        font-weight: bold; 
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #56282c; 
+            color: white;
+            padding: 40px; /* Increased padding */
+            width: 400px; /* Set a fixed width */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            text-align: center;
+            font-size: 2em; 
+            font-weight: bold; 
         }
 
         .notification i {

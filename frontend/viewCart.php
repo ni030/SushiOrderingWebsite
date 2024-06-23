@@ -2,7 +2,7 @@
 require_once ("../backend/connection.php");
 session_start();
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === false) {
-    header("Location: ../frontend/login.php");
+    header("Location: ../frontend/login.php?showNotification=true");
     exit();
 }
 
@@ -104,6 +104,29 @@ $formattedDateTime = date("Y-m-d H:i:s", $timestamp);
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-position: center;
+        }
+
+        .notification {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: red;
+            color: white;
+            padding: 40px;
+            width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        .notification i {
+            margin-right: 15px;
+            font-size: 1.5em;
         }
     </style>
 </head>

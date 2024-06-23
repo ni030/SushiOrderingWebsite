@@ -97,7 +97,7 @@ $result3 = mysqli_query($conn, $sql3);
 
     <!--Promotions-->
     <section class="promotion" id="promotion">
-        <h3 class="sub-heading"> our exclusive</h3>
+        <h3 class="sub-heading" style="  font-weight: bold;"> our exclusive</h3>
         <h3 class="heading"> Promotions</h3>
 
         <div class="box-container">
@@ -129,7 +129,7 @@ $result3 = mysqli_query($conn, $sql3);
 
     <!--menu-->
     <section class="menu" id="menu">
-        <h3 class="sub-heading"> enjoy the taste of japan</h3>
+        <h3 class="sub-heading" style="  font-weight: bold;"> enjoy the taste of japan</h3>
         <h3 class="heading"> Menu</h3>
 
         <!--Menu bar-->
