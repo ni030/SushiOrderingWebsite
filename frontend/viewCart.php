@@ -18,7 +18,12 @@ if (empty($row['meals'])) {
 
 $sqlAddress = "SELECT * FROM address WHERE userID = '$uid'";
 $resultAdd = mysqli_query($conn, $sqlAddress);
+$count = mysqli_num_rows($resultAdd);
 
+if ($count == 0) {
+    header("Location: addAddress.php");
+    exit();
+}
 $mealArray = explode(',', $row["meals"]);
 $quantityArray = explode(',', $row["quantity"]);
 $total = 0.00;
@@ -113,8 +118,10 @@ $formattedDateTime = date("Y-m-d H:i:s", $timestamp);
             <label for="address"> Choose an address: </label>
             <select name="address" id="address">
                 <?php while ($rowAdd = $resultAdd->fetch_assoc()) { ?>
-                    <option value="<?php echo $rowAdd["unit"].", ".$rowAdd["address"]." ".$rowAdd["city"].", ".$rowAdd["postcode"].", ".$rowAdd["state"];?>">
-                        <?php echo $rowAdd["addressName"] ?></option>
+                    <option
+                        value="<?php echo $rowAdd["unit"] . ", " . $rowAdd["address"] . " " . $rowAdd["city"] . ", " . $rowAdd["postcode"] . ", " . $rowAdd["state"]; ?>">
+                        <?php echo $rowAdd["addressName"] ?>
+                    </option>
                 <?php } ?>
             </select>
         </div>
