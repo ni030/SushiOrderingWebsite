@@ -67,28 +67,31 @@ $result3 = mysqli_query($conn, $sql3)
         <div class="form-container">
             <h1>Change Password</h1>
             <form class="row g-3" method="POST" action="../backend/changePassword.php" id="change-form">
-                <div class="col-md-12">
+                <div class="col-md-12 password-section">
                     <label for="inputPassword4" class="form-label">Current Password:</label>
                     <input type="password" class="form-control" id="inputPassword4" name="currentPW" required>
-                    <p id="current_error" style=" color: red; display: none;">Your current password is wrong!</p>
+                    <span class="fa fa-eye " id="togglePassword3"></span>
                 </div>
+                <p id="current_error" style="margin-top:0px;" class="error">* Your current password is wrong!</p>
 
-                <div class="col-md-12">
+                <div class="col-md-12 password-section">
                     <label for="inputPassword4" class="form-label">New Password:</label>
                     <input type="password" class="form-control" id="inputPassword4" name="newPW" required>
-                    <p id="password_error" style=" color: red; display: none;">Your password length needs to be at least
-                        8 & contains at least 1 uppercase character & number!</p>
+                    <span class="fa fa-eye " id="togglePassword1"></span>
                 </div>
+                <p id="password_error" style="margin-top:0px;" class="error">* Your password length needs to be at least
+                    8 & contains at least 1 uppercase character & number!</p>
 
-                <div class="col-md-12">
+                <div class="col-md-12 password-section">
                     <label for="inputPassword4" class="form-label">Confirm New Password:</label>
                     <input type="password" class="form-control" id="inputPassword4" name="confirmedPW" required>
-                    <p id="matched_error" style=" color: red; display: none;">Your password does not match!</p>
+                    <span class="fa fa-eye " id="togglePassword2"></span>
                 </div>
+                <p id="matched_error" style="margin-top:0px;" class="error">* Your password does not match!</p>
 
                 <input type="hidden" name="email" value="<?php echo $row['email'] ?>">
                 <div class="col-12">
-                    <p id="tech_error" style=" color: red; display: none;">Sorry, there is some errors in the system!
+                    <p id="tech_error" class="error">* Sorry, there is some errors in the system!
                     </p>
                 </div>
 
