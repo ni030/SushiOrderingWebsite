@@ -35,14 +35,16 @@ function saveOrder($userID,$cart,$conn){
 
 if(isset($_SESSION['cart'])&&!empty($_SESSION['cart'])){
     if(saveOrder($userID,$_SESSION['cart'],$conn)){
-        echo "Order has been placed successfully";
+        header("Location: ../frontend/thankyou.php");
+    exit();
     }
     else{
         echo "Failed to place the order";
     }
 }
 else{
-    echo "Your cart is empty.";
+    header("Location: ../frontend/cartEmpty.php");
+    exit();
 }
 
 ?>
