@@ -32,9 +32,10 @@ html, body {
 h2 {
     font-size: 30px;
     font-weight: bold;
-    margin-bottom: 30px;
+    margin-bottom: 30px;         
+    margin-top: 30px;         
     color: #541616;
-    /* text-align: center; */
+    text-align: center;
 }
 
 .login{
@@ -52,26 +53,55 @@ h2 {
 
 .form-container {
     background: rgba(245, 245, 245, 0.9);
-    padding: 20px;
-    padding-top: 30px;
-    padding-bottom: 10px;
+    padding: 40px;
+    padding-top:30px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 form {
-    width: 300px;
+    width: 350px;
     margin: 0 auto;
     text-align: left;
 }
+
+/* password toggle start */
+.password-section {
+    position: relative;
+    display: inline-block;
+ }
+
+ .password-section .fa-eye {
+    position: absolute;
+    top: 76%;
+    right: 22px; /* Adjust this value to control the icon's position */
+    transform: translateY(-50%);
+    cursor: pointer;
+ }
+ .password-section .fa-eye-slash {
+    position: absolute;
+    top: 76%;
+    right: 22px; /* Adjust this value to control the icon's position */
+    transform: translateY(-50%);
+    cursor: pointer;
+ }
+
+/* password toggle end */
 
 .input-error{
     border:1px solid red;
 }
 
 .input-error:focus {
-    border-color: red !important;
+    border-color: red;
     box-shadow: none;
+}
+
+.error{
+    color: red; 
+    display: none;
+    font-size: 12px;
+    font-style: italic;
 }
 
 #login-form .col-12 {
@@ -115,11 +145,20 @@ form {
 
 @media (max-width: 600px) {
     h2 {
-        font-size: 20px;
+        font-size: 1.25rem;
+    }
+
+    .form-container {
+        padding: 20px;
+    }
+
+    #login-form .col-12 {
+        justify-content: center; /* Center align the submit button on small screens */
     }
 
     #login-form input[type="submit"] {
         width: 100%;
+        margin-top: 10px;
     }
 }
 @media (max-height: 500px) {
