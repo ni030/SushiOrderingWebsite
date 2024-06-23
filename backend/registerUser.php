@@ -1,6 +1,7 @@
 <?php
-require_once ("connection.php");
+require_once("connection.php");
 $email_error_message = null;
+
 
 if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "Register Now")) {
 
@@ -8,6 +9,8 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "Register Now")) {
     if (empty($_POST["firstName"]) || empty($_POST["lastName"]) || empty($_POST["email"]) || empty($_POST["mobileNum"]) || empty($_POST["password"]) || empty($_POST["birthday"])) {
         echo "Have null value(s).";
     } else {
+        $email_error = 0;
+        $phone_error = 0;
         //check unique for email and mobileNum
         if ($stmt = $conn->prepare("SELECT guid FROM user WHERE email = ?")) {
             $stmt->bind_param('s', $_POST["email"]);
@@ -15,8 +18,8 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "Register Now")) {
             $stmt->store_result();
 
             if ($stmt->num_rows > 0) {
-                header("Location: ../frontend/register.php?signup=email");
-                exit();
+                $email_error = 1;
+                // header("Location: ../frontend/register.php?signup=email");
             }
             $stmt->close();
         }
@@ -27,10 +30,24 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "Register Now")) {
             $stmt2->store_result();
 
             if ($stmt2->num_rows > 0) {
+                $phone_error = 1;
+                // header("Location: ../frontend/register.php?signup=phone");
+            }
+            $stmt2->close();
+        }
+        $error = $email_error + $phone_error;
+        if ($error == 2) {
+            header("Location: ../frontend/register.php?signup=both");
+            exit();
+        } else {
+            if ($email_error == 1) {
+                header("Location: ../frontend/register.php?signup=email");
+                exit();
+            }
+            if ($phone_error == 1) {
                 header("Location: ../frontend/register.php?signup=phone");
                 exit();
             }
-            $stmt2->close();
         }
 
         $firstName = $_POST["firstName"];
@@ -65,8 +82,8 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "Register Now")) {
         );
 
         $sql = "INSERT INTO `user`(`firstName`, `lastName`, `mobileNum`, `email`, `password`, `birthday`) VALUES ('$firstName', '$lastName', '$mobileNum', '$email', '$encryption', '$birthday')";
-        
-        header("Location:createCart.php?email=".$email);
+
+        header("Location:createCart.php?email=" . $email);
 
         if ($conn->query($sql) === TRUE) {
             echo "Success";
