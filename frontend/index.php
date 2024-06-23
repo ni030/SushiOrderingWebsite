@@ -7,6 +7,9 @@ $result = mysqli_query($conn, $sql);
 
 $sql2 = "SELECT * FROM meal WHERE category = 'Promotion'";
 $result2 = mysqli_query($conn, $sql2);
+
+$sql3 = "SELECT * FROM meal WHERE category = 'Combo'";
+$result3 = mysqli_query($conn, $sql3);
 ?>
 
 <!DOCTYPE html>
@@ -70,52 +73,22 @@ $result2 = mysqli_query($conn, $sql2);
         <div class="swiper home-slider">
 
             <div class="swiper-wrapper wrapper">
-
+                <?php
+                    while ($row3 = $result3->fetch_assoc()) {
+                ?>
                 <div class="swiper-slide slide">
                     <div class="content">
-                        <span>Our Specials, only at RM 59.90</span>
-                        <h3>Family Feast Combo</h3>
-                        <p>our Family Feast Combo includes a generous assortment of sushi rolls,
-                            sashimi, nigiri, and a variety of sides.
-                            Ideal for gatherings and family meals where everyone can enjoy a taste of Japan together.
+                        <span>Our Specials, only at RM <?php echo $row3["price"]?></span>
+                        <h3><?php echo $row3["mealName"]?></h3>
+                        <p><?php echo $row3["description"]?>
                         </p>
-                        <a href="#" class="btn">Order now</a>
+                        <a href="../frontend/mealDetail.php?meal=<?php echo $row3['mealID']; ?>" class="btn">Order now</a>
                     </div>
                     <div class="image">
-                        <img src="img/home1.png" alt="">
+                        <img src="img/<?php echo $row3["mealPic"]?>" alt="">
                     </div>
                 </div>
-
-                <div class="swiper-slide slide">
-                    <div class="content">
-                        <span>Our Specials, only at RM 29.90</span>
-                        <h3>Solo Savory Combo</h3>
-                        <p>Tailored for sushi enthusiasts dining alone or
-                            with a companion. It features a selection of sushi rolls,
-                            nigiri, and a side dish, ensuring a satisfying and delightful
-                            meal experience for one or two people.</p>
-                        <a href="#" class="btn">Order now</a>
-                    </div>
-                    <div class="image">
-                        <img src="img/home2.png" alt="">
-                    </div>
-                </div>
-
-                <div class="swiper-slide slide">
-                    <div class="content">
-                        <span>Our Specials, only at RM 79.90</span>
-                        <h3>Sashimi Sensation Combo</h3>
-                        <p>Indulge in the exquisite flavors of our Sashimi Sensation Combo,
-                            showcasing the freshest cuts of sashimi meticulously prepared by
-                            our skilled chefs. This combo is designed to delight sashimi
-                            aficionados with its premium selection and artful presentation.</p>
-                        <a href="#" class="btn">Order now</a>
-                    </div>
-                    <div class="image3">
-                        <img src="img/home3.png" alt="">
-                    </div>
-                </div>
-
+                <?php }?>
             </div>
             <div class="swiper-pagination"></div>
         </div>
