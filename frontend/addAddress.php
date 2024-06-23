@@ -1,3 +1,23 @@
+<?php
+session_start();
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === false) {
+    header("Location: login.php");
+}
+require_once("../backend/connection.php");
+$recordID = $_SESSION["id"];
+
+$sql = "SELECT * FROM user WHERE guid = '$recordID'";
+$result = mysqli_query($conn, $sql);
+$row = $result->fetch_assoc();
+
+$sql2 = "SELECT * FROM address WHERE userID = '$recordID'";
+$result2 = mysqli_query($conn, $sql2);
+
+$sql3 = "SELECT * from orders WHERE orderUser = '$recordID'";
+$result3 = mysqli_query($conn, $sql3)
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,7 +55,6 @@
     include("side-bar.php");
     ?>
     <div class="content d-flex">
-        <!-- Session 1: user profile into + ediy -->
         <div id="addSection">
             <h1>Add New Address</h1>
             <form class="row g-3" method="POST" action="../backend/addNewAddress.php" id="addForm">
@@ -67,8 +86,7 @@
                     <input type="text" class="form-control" id="validationDefault02" name="postcode" required>
                 </div>
 
-                <input type="hidden" name="userID" value="<?php session_start();
-                                                            echo $recordID = $_SESSION["id"]; ?>">
+                <input type="hidden" name="userID" value="<?php echo $recordID; ?>">
                 <div class="col-12 d-flex justify-content-end">
                     <input type="submit" name="MM_insert" value="Save Address">
                 </div>
