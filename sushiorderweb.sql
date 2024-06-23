@@ -122,9 +122,9 @@ INSERT INTO `meal` (`mealID`, `mealName`, `mealPic`, `category`, `description`, 
 ('M030', 'Ebi', 'promo1.png', 'Promotion', '', 2.99),
 ('M031', 'Ikura', 'promo2.png', 'Promotion', '', 2.50),
 ('M032', 'Hamachi', 'promo3.png', 'Promotion', '', 2.20),
-('M033', 'Futomaki', 'promo4.png', 'Promotion', '', 2.50);
-('M034', 'Family Feast Combo', 'home1.png', 'Combo', 'Ideal for gatherings and family meals where everyone can enjoy a taste of Japan together.', 59.90);
-('M035', 'Solo Savory Combo', 'home2.png', 'Combo', 'Tailored for sushi enthusiasts dining alone or with a companion', 29.90);
+('M033', 'Futomaki', 'promo4.png', 'Promotion', '', 2.50),
+('M034', 'Family Feast Combo', 'home1.png', 'Combo', 'Ideal for gatherings and family meals where everyone can enjoy a taste of Japan together.', 59.90),
+('M035', 'Solo Savory Combo', 'home2.png', 'Combo', 'Tailored for sushi enthusiasts dining alone or with a companion', 29.90),
 ('M036', 'Sashimi Sensation Combo', 'home3.png', 'Combo', 'Designed to delight sashimi aficionados with its artful presentation', 79.90);
 
 -- --------------------------------------------------------
