@@ -15,7 +15,7 @@
             <li><a href="../frontend/index.php" class="home-link">Home</a></li>
             <li><a href="../frontend/menuPage.php" class="menu-link">Menu</a></li>
             <li><a href="../frontend/promotion.php" clas="promo-link">Promotion</a></li>
-            <li><a href="../backend/viewCart.php" class="cart-link">Cart</a></li>
+            <li><a href="../frontend/viewCart.php" class="cart-link">Cart</a></li>
             <?php
             if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === false) { ?>
             <li><a href="../frontend/login.php">Login</a></li>
@@ -46,7 +46,7 @@
         </span>
 
         <div class="navCart">
-            <a href="../backend/viewCart.php" class="cart-link">
+            <a href="../frontend/viewCart.php" class="cart-link">
                 <i style="margin-right: 1%;" class="fa-solid fa-cart-shopping justify-content-end fa-xl"></i>
             </a>
         </div>
