@@ -1,3 +1,5 @@
+document.querySelectorAll('.home-link').forEach(link => link.classList.add('active'));
+
 var swiper = new Swiper(".home-slider", {
     spaceBetween: 30,
     centeredSlides: true,
