@@ -1,27 +1,21 @@
 ﻿# SushiOrderingWebsite
-Sushi Ordering Website (Interactive Website)
+An interactive online platform where users can browse a variety of sushi items, customize their selections, add meals to a virtual cart, and place orders seamlessly. The website offers a user-friendly interface for exploring the menu, managing orders, and enjoying a smooth sushi ordering experience from start to finish
 
-**Important**
-- Only delivery NO pickup
-- NO rewards
-- NO payment
-- Naming variable: camelCase
-- Color theme: https://colorhunt.co/palette/f5f7f8f4ce14495e5745474b
-- Font type: SoDoSans (file provided)
-
-**Main language:**
-- HTML, CSS, Javascript, bootstrap(https://getbootstrap.com/)
-- PHP, MySQL
-- Other framework
-- Refer: KFC Website: https://kfc.com.my/
+**Language & Material:**
+- HTML, CSS, Javascript, bootstrap, PHP, MySQL
 - Material such as pictures take from sushi websites
 
+**Leader:** LIM SI NI
 
-**Front End (2 ppl)**: ONG KAI XUEN, SOH FEI ZHEN
+**Front End**: ONG KAI XUEN, SOH FEI ZHEN
+**Back End**: LIM SI NI, LIM JIA AN
 
-**Back End (2 ppl)**: LIM SI NI, LIM JIA AN
+## 🌐 Live Demo
 
-# Draft of Website 
+Check out the live version of the website here:  
+👉 [http://sushiordering.infinityfreeapp.com/](http://sushiordering.infinityfreeapp.com/)
+
+# Features of Website 
 1. Login
 - Design: Login form 
 - Feature: Validate login, password detection, show/hide password eye, haven’t register jump to “register page”
